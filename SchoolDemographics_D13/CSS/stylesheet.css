@@ -1,0 +1,75 @@
+/*  CLASS 12 // demographic map css 2
+    EXAMPLE WTIH ANNOTATION
+    D3.js PIE CHART and LEAFLET and BOOTSTRAP*/
+
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#map {
+    height: 90vh; /* vh = view port height, so that map doesn't disappear off edge of window */
+}
+
+.legend {
+	line-height: 18px;
+    padding: 5px 14px 1px 10px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.left {
+    margin-top:5px;
+}
+
+.chartLabel {
+    line-height: 18px;
+    padding: 5px 14px 1px 10px;
+    text-align: center;
+
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 12px;
+    opacity: 0.7;
+}
+
+svg .legendSvg { 
+    fill: #F78A09;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+svg .legendSvg1 { 
+    fill: #F03B20;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+svg .legendSvg2 { 
+    fill: #FEB24C;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+.circle {
+    background-color: #909090;
+}
+/* SVG text anchor for text oriented around svg*/ 
+.arc text {
+  font: 11px sans-serif;
+  text-anchor: middle;
+}
+/* SVG anchors text in relation to svg, stroke puts line around pie chart -- all the same */ 
+.arc path {
+  stroke: #fff;
+}

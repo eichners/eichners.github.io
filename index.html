@@ -1,0 +1,74 @@
+<!-- SCHOOL SIZE MAP: Final Project
+/*  BASED ON CLASS 12 MAP; D3 CHART WTIH BOOTSTRAP FRAMEWORK
+    D3.js PIE CHART and LEAFLET */-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>District 13 School Enrollment 2006-2015</title>
+    <meta charset="utf-8" />
+    <!-- For full screen Leaflet maps, add the following meta tag to set parameters in the viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Including Bootstrap CSS -->
+    <link type="text/css" rel="stylesheet" href="libraries/bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
+    <!-- Including Leaflet CSS -->
+    <link type="text/css" rel="stylesheet" href="libraries/leaflet-0.7.3/leaflet.css"/>    
+
+    <!-- Including our custom CSS -->
+    <link type="text/css" rel="stylesheet" href="css/SchoolSizeStyles.css"/>
+  </head>
+  <body>
+       <!-- nav bar from here to line 55 -->
+    <nav class="navbar navbar-fixed-top">
+
+      <div class="container-fluid">
+        <!-- Line 23 - 28 is hamburger: Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-content" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><font-color = "#808080">Brooklyn School District 13  <b> Enrollment 2006-2015</b></font></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#"></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="SchoolDemographics_D13/index.html">School Demographics Map</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+      <div class="row"><!-- divided into two columns, one for map one for d3 chart -->
+        <div class="col-sm-12">
+          <div id="map"></div>
+        </div>
+        <div>
+          <div>
+            <div>
+              </div>
+            </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Including jQuery -->
+  <script type="text/javascript" src="libraries/jQuery/jquery-1.11.2.min.js"></script>
+  <!-- Including Bootstrap Javascript Library -->
+  <script type="text/javascript" src="libraries/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+  <!-- Including Leaflet Javascript Library -->
+  <script type="text/javascript" src="libraries/leaflet-0.7.3/leaflet.js"></script>
+  <!-- Including d3.js -->
+  <script type="text/javascript" src="libraries/d3/d3.min.js"></script>
+
+  <!-- Including our custom Javascript -->  
+  <script type="text/javascript" src="js/SchoolSizeScript2.js"></script>
+</html>
