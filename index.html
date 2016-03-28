@@ -3,5 +3,37 @@
 <html>
   <head>
     <title>Brooklyn Odd Lots 2016</title>
- <iframe width="100%" height="1200" frameborder="0" src="https://eichnersara.cartodb.com/viz/e5800ed6-582f-11e5-9177-0ec6f7c8b2b9/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+<iframe width="100%" height="1200" frameborder="0" src="https://eichnersara.cartodb.com/viz/e5800ed6-582f-11e5-9177-0ec6f7c8b2b9/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 </html>
+
+<!--sql 
+
+	I was trying to select just the fields or values within one column that I wanted to show so that the others would be disabled. But my SQL did not work. The problem is that hover windows show up for all of the tax lots in brooklyn when I only want to show the info for the ones selected for the Odd Lots map.
+
+did not work:
+SELECT * 
+FROM bkmappluto
+
+Nor did this, to limit fields that would show on map:
+SELECT * 
+FROM bkmappluto
+WHERE lottype IS NOT '0', '1','2','3','4','5'
+
+SELECT * 
+FROM bkmappluto
+WHERE lottype != "0" OR "1" OR "2"
+
+Because I couldn't get the SQL to work, I have all the data loaded but colored with grey 
+
+Other questions:
+
+Can I add a text field with some information with links, etc. Is there an html editing mode for those in cartodb? kind of like the title text field but with more room to edit and style?
+
+Each value for the legend or popup window needs decoding. how do I change the information to show what each building class is rather than just showing the code which was just a number? Probably css conditional statement which I can try later this week.
+
+Iframe embed link would not let me change height to 100%. Is this possible?
+
+Once map is embeded, it seems pop up windows only work on one layer rather than both layers I was using. Both layers work within cartodb.
+
+
+-->
