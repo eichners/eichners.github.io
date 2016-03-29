@@ -2,12 +2,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-  	  <link type="text/css" rel="stylesheet" href="css/Assignment1Style.css"/>
+  	  <link type="text/css" rel="stylesheet" href="CSS/Assignment1Style.css"/>
     <title>Brooklyn Odd Lots 2016</title>
 <iframe width="100%" height="100%" frameborder="0" src="https://eichnersara.cartodb.com/viz/e5800ed6-582f-11e5-9177-0ec6f7c8b2b9/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 </html>
 
+
+
 <!--sql 
+
+	SQL that works for selecting 4 attributes from lottype column:
+SELECT * 
+FROM bkmappluto
+WHERE "lottype" = '6' OR "lottype" = '8' OR "lottype" = '9' OR "lottype" =  '7'
+
 
 	I was trying to select just the fields or values within one column that I wanted to show so that the others would be disabled. But my SQL did not work. The problem is that hover windows show up for all of the tax lots in brooklyn when I only want to show the info for the ones selected for the Odd Lots map.
 
