@@ -1,0 +1,224 @@
+/*  School Size CSS */
+
+
+body {
+    padding-top: 60px;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#map {
+    height: 90vh; 
+}
+
+body {
+    font-family:Helvetica,​ Arial,​ sans-serif;
+    font-size:12px;
+    font-weight:400;
+    color:#333333;
+}
+
+.navbar-default {
+    font-weight: 400;
+    font-color: #808080;
+}
+
+navbar-brand {
+    font-weight: 400;
+    font-color: #808080;
+}
+
+p
+{ margin: 0px;
+  padding: 0px 0px 12px 0px;
+  line-height: 1.7em;
+  text-align: left;
+}
+p2
+{ margin: 0px;
+  padding: 0px 0px 3px 0px;
+  line-height: 1.5em;
+  text-align: center;
+  font-weight: 400;
+  font-size:12px;
+}
+
+h1
+{ font-family:Helvetica,​ Arial,​ sans-serif;
+        font-size:20px;
+        color:#333333;
+        font-weight: 400;
+        margin-bottom: 26px;
+        padding-bottom: 28px;
+}
+
+h2
+{  font-family:Helvetica,​ Arial,​ sans-serif;
+                font-size:22px;
+                color:#333333;
+        font-size: 22px;
+        line-height: 1.2;
+        text-transform: uppercase;
+}
+
+a:link { 
+    font-family:Helvetica,​ Arial,​ sans-serif;
+    text-decoration: none;
+    font-color: #808080;
+    }
+    
+a:hover { 
+    color: #333333;
+    text-decoration: none;
+    }
+
+
+#message_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: #ffc;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    text-align: center;
+    font-weight: bold;
+    width: 99%;
+}
+
+#clear {clear:both;}
+
+.info {
+    padding: 6px 8px;
+    font: bold 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.info span {
+    font: 12px/12px Arial, Helvetica, sans-serif;
+    color: #777;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.left {
+    display: inline-block;
+}
+.left2 {
+
+    float: left;
+    text-align: center;
+    line-height: 1.7em;
+}
+svg .legendSvg { 
+    fill: #4CA120;
+    fill-opacity: 0.7;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+svg .legendSvg1 { 
+    fill: #E82C0C;
+    fill-opacity: 0.7;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+svg .legendSvg2 { 
+    fill: #1A68B2;
+    fill-opacity: 0.7;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+svg .legendSvg3 { 
+    fill: #FFEDA0;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+svg .legendSvg4 { 
+    fill: #BDBDBD;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+svg .legendSvgPass { 
+    fill: #B9FCFF;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+
+svg .legendSvgFail { 
+    fill: #552B08;
+    stroke: black; 
+    stroke-width: 1;
+    opacity: 0.75;
+}
+navbar-brand {
+    font-color: #808080;
+}
+
+.link {
+    float: right;
+        color: #808080;
+}
+
+.dateRangeSlider {
+    width: 300px;
+}
+
+.legend {
+	line-height: 18px;
+    padding: 6px 8px 6px 8px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-left: 8px;
+    margin-bottom: 15px;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+/* SVG text anchor for text oriented around svg*/ 
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+/* SVG anchors text in relation to svg, stroke puts line around pie chart -- all the same */ 
+.arc path {
+  stroke: #fff;
+}

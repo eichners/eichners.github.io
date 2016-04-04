@@ -2,7 +2,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+<<<<<<< Updated upstream
   	  <link type="text/css" rel="stylesheet" href="Assignment1Style.css"/>
+=======
+  	  <link type="text/css" rel="stylesheet" href="SAVI800/Assignment1/css/Assignment1Style.css"/>
+>>>>>>> Stashed changes
     <title>Brooklyn Odd Lots 2016</title>
 <iframe width="100%" height="100%" frameborder="0" src="https://eichnersara.cartodb.com/viz/e5800ed6-582f-11e5-9177-0ec6f7c8b2b9/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 </html>
@@ -37,4 +41,34 @@ Iframe embed link would not let me change height to 100%. Is this possible?
 Once map is embeded, it seems pop up windows only work on one layer rather than both layers I was using. Both layers work within cartodb.
 
 
+CAn I use the following to select lots within a certain distance from the odd lot? 
+SELECT
+  *,
+  ST_Distance(
+    the_geom::geography, 
+    CDB_LatLng(37.7833,-122.4167)::geography
+  ) / 1000 AS dist
+FROM
+  earthquake_sql
+  ?
+FOR ODD LOTS MAP SQL:
+
+Brooklyn Odd Lots 2016
+
+$(document).ready(function () {
+  // Use jQuery to call the SQL API
+  var url = 'https://eichnersara.cartodb.com/api/v2/sql?' + $.param({
+    q: 'COUNT AVG(price), MIN(price), MAX(price) FROM listings'
+  });
+  
+  
+  $.getJSON(url)
+    
+    // When it's done it will pass the parsed response in data
+    .done(function (data) {
+      $('.average').text(data.rows[0].avg);
+$('.minimum').text(data.rows[0].min);
+$('.maximum').text(data.rows[0].max);
+    });
+});
 -->
