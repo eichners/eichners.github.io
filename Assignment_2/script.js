@@ -35,10 +35,19 @@ $(document).ready(function () {
 		    }).addTo(map); 
 	      
 	      map.fitBounds(oddLotsData.getBounds());
-
-	$('.LIMIT').change(function () {
+// double quotes in sql means column!!
+// single quotes are for strings so all text is single quotes
+	$('.choice').change(function () {
+	var sql = 'SELECT * FROM bk_oddlots';
+	if ($(this).val() === '*') {
+	}
+	else if ($(this).val() === 'null'){}
+	else { 
+		sql = "WHERE ownertype = '" +  ($(this.val()) + "'"	
+			}
+	
     var url = 'https://eichnersara.cartodb.com/api/v2/sql?' + $.param({
-      q: 'SELECT * FROM bk_oddlots ORDER BY ownertype DESC LIMIT ' + $(this).val(),
+      q: sql,
       format: 'GeoJSON'
     });
     $.getJSON(url)
