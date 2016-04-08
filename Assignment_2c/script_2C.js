@@ -46,6 +46,8 @@ $(document).ready(function () {
 			}	
 				
 	    }).addTo(map); 
+
+	    
 	    map.fitBounds(oddLotsLayer.getBounds());  
 	});
 	    // oddLotsLayer.onEachLayer(function( Layer){

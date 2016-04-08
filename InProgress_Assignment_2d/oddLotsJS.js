@@ -140,7 +140,7 @@ function OwnerTypeData(dataLayer, choice) {
     }
     else { 
         sql = "WHERE ownertype = '" +  ($(this.val()) + "'"
-    //}
+    }
     
     var url = 'https://eichnersara.cartodb.com/api/v2/sql?' + $.param({
       q: sql + choice,
