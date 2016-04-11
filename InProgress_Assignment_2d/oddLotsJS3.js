@@ -143,6 +143,7 @@ $('.choice').change(function () {
 
     .done(function (data) {
     var ownerData = data;
+console.log(data);
 
     dataLayer.clearLayers();
     dataLayer.addData(data);
@@ -153,10 +154,8 @@ $('.choice').change(function () {
         var OwnerData = L.geoJson(null).addTo(map);
         //addTileLayer(map);
         addDataToMap(dataLayer, choice);
-    console.log(data);
         $('.choice').change(function () {
             addDataToMap(dataLayer, $(this).val());
-                console.log(data);
         // not sure if this function should include the other addToMap calls
         // ownerTypeGeoJSON.addTo(map);
         });
