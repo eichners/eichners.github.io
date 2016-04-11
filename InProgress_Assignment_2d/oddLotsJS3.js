@@ -11,7 +11,7 @@ maxZoom: 19
 // create global variables we can use for layer controls
 var oddLotsGeoJSON;
 var NYBBgeoJSON;
-var ownerTypeGeoJSON;
+//var ownerTypeGeoJSON;
 
 
 addNYBB(); 
@@ -21,10 +21,9 @@ $.getJSON( "geojson/nybb.geojson", function( data ) {
     var NYBBPolygon = data; 
 
     var NYBBstyle = function (feature) {
-
         var value = feature.properties.BoroCode;
         if(value === 3){
-            fillColor = "black";
+            fillColor = "#3f3f3f";
             color = "black";
             fillOpacity = 0.8;
         }
@@ -48,18 +47,15 @@ $.getJSON( "geojson/nybb.geojson", function( data ) {
             color = "black";
             fillOpacity = 0.6;
         }
-
         var style = {
             weight: 1,
             color:color,
             fillColor: fillColor,
             fillOpacity: fillOpacity
         };
-
         return style;
     }
-
-  console.log(data);
+ //   console.log(data);
 
     NYBBgeoJSON = L.geoJson(NYBBPolygon, {
         style: NYBBstyle
@@ -82,15 +78,15 @@ function (data) {
             color = "#fee5d9";
         }
         if(value === '6'){
-            fillColor = "#3B5ABD";
-            color = '#3B5ABD';
+            fillColor = "#5CB3FF";
+            color = '#5CB3FF';
         }
         if(value === '7'){
             fillColor = "#00B2B2";
             color = '#00B2B2';
         }
         if(value === '9'){
-            fillColor = "#6b9bdd";
+            fillColor = "#FA550F";
             color = '#FA550F';
         }
         if(value === '8') { 
@@ -124,41 +120,45 @@ function (data) {
 
     NYBBgeoJSON.addTo(map);
     oddLotsGeoJSON.addTo(map);
- //   ownerTypeGeoJSON.addTo(map);
+    map.fitBounds(oddLotsGeoJSON.getBounds());
 });
 }
-addOwnerTypeData();
+
+//addOwnerData();
 //});
-//}
 
-function OwnerTypeData(dataLayer, choice) {
+function addDataToMap(dataLayer, choice) {
+$('.choice').change(function () {
     var sql = 'SELECT * FROM bk_oddlots';
-
-    if ($(this).val() === 'lottype') {
-    }
-    else { 
-        sql = "WHERE ownertype = '" +  ($(this.val()) + "'"
-    }
-    
-    var url = 'https://eichnersara.cartodb.com/api/v2/sql?' + $.param({
-      q: sql + choice,
-      format: 'GeoJSON'
+          if ($(this).val() === 'lottype') {
+          }
+          else {
+          sql = "'WHERE lottype = '" + ($(this).val() + "'" );
+          }
+    var url = 'https://eichnersara.sartodb.com/api/v2/sql?' + $.param({
+    q: 'sql' + choice,
+    format: 'GeoJSON'        
     });
     $.getJSON(url)
 
-  // When it's done, add the results to the map
     .done(function (data) {
+    var ownerData = data;
+
     dataLayer.clearLayers();
     dataLayer.addData(data);
     });
+ });
 
     $(document).ready(function () {
-        var dataLayer = L.geoJson(null).addTo(map);
-
-        addDataToMap(dataLayer,feature.properties.ownertype);
-
+        var OwnerData = L.geoJson(null).addTo(map);
+        //addTileLayer(map);
+        addDataToMap(dataLayer, choice);
+    console.log(data);
         $('.choice').change(function () {
-        addOwnerTypeData(dataLayer, $(this).val());
+            addDataToMap(dataLayer, $(this).val());
+                console.log(data);
+        // not sure if this function should include the other addToMap calls
+        // ownerTypeGeoJSON.addTo(map);
         });
     }); 
 } 
