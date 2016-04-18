@@ -66,9 +66,9 @@ $.getJSON( "geojson/nybb.geojson", function( data ) {
 }
 
 function addOddLotsData() {
-$.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM bk_oddlots &format=GeoJSON', 
+$.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM bk_oddlots_copy &format=GeoJSON', 
 function (data) {
-    var oddLotsLayer = data;
+    var dataLayer = data;
 
     var lotStyle = function (feature){
 
@@ -78,20 +78,20 @@ function (data) {
             color = "#fee5d9";
         }
         if(value === '6'){
-            fillColor = "#5CB3FF";
-            color = '#5CB3FF';
+            fillColor = "#A6D5FF";
+            color = '#A6D5FF';
         }
         if(value === '7'){
-            fillColor = "#00B2B2";
-            color = '#00B2B2';
+            fillColor = "#40C9C9";
+            color = '#40C9C9';
         }
         if(value === '9'){
-            fillColor = "#FA550F";
-            color = '#FA550F';
+            fillColor = "#FC923A";
+            color = '#FC923A';
         }
         if(value === '8') { 
-            fillColor = "#46a346";
-            color = '#46a346';
+            fillColor = "#FF8563";
+            color = '#FF8563';
         }
     
         var style = {
@@ -106,14 +106,14 @@ function (data) {
         return style;
     }
 
-    var lotClick = function (feature, layer) {
-        layer.bindPopup("This odd lot address is " + 
+    var lotClick = function (feature, dataLayer) {
+        dataLayer.bindPopup("This odd lot address is " + 
             "<strong>" + feature.properties.address + "</strong>" + 
             " and it is owned by " + 
             "<strong>" + feature.properties.ownername + "</strong>");
     }
 
-    oddLotsGeoJSON = L.geoJson(oddLotsLayer, {
+    oddLotsGeoJSON = L.geoJson(dataLayer, {
         style: lotStyle,
         onEachFeature: lotClick
     });
@@ -130,7 +130,7 @@ function (data) {
 function addDataToMap(dataLayer, choice) {
 $('.choice').change(function () {
     console.log('anything');
-    var sql = 'SELECT * FROM bk_oddlots';
+    var sql = 'SELECT * FROM bk_oddlots_copy';
           if ($(this).val() === 'lottype') {
           }
           else {

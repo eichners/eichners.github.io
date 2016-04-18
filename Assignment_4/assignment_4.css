@@ -1,0 +1,34 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+}
+.results {
+  color: grey;
+  font-family: verdana;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.25;
+  width: 190px;
+}
+.location {
+  color: grey;
+  font-family: verdana;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.25;
+  z-index: 5000;
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: red;
+}
+
+.leaflet-popup {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  width: 190px;
+}

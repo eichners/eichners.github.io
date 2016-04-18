@@ -6,9 +6,6 @@
 // - and different colors for growth or decline. 
 // - create slider to show change from 2006 - 2015
 
-
-
-//OTHER MAP TILES
 var map = L.map('map').setView([40.689542, -73.969587], 14);
 
 var OpenMapSurfer_Grayscale = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roadsg/x={x}&y={y}&z={z}', {
@@ -111,25 +108,6 @@ $.getJSON( "geojson/D13_Enrollment_06-15_2.geojson", function( data ) {
                     '#E82C0C' ;
                     
 }
-//  }
-
-//Colors:
-// deep red E82C0C
-// orange F78A09
-// bright blue 0439FF
-// lighter blue: F7E309
-// more teal blue: 1A68A1, 1A68B2
-
-// deep green: 06A12D
-// more yellow green: 4CA120
-// Yellow; F7D009
-
-// grey green: 569576
-
-// grey’ 899692
-// 808080
-// 878787
-// B8B8B8
 
     var schoolClick = function (Feature, layer) {
           /////// var popupText attemtps to make popup ignore 0 value properties and instead show first year with data for enrollment
@@ -141,15 +119,10 @@ $.getJSON( "geojson/D13_Enrollment_06-15_2.geojson", function( data ) {
         layer.bindPopup(popupContent)
     }
 
-// function plotDataset(dataset) {
     SchoolSizeGeoJSON = L.geoJson(schools, {
         pointToLayer: schoolPointToLayer,
         onEachFeature: schoolClick
   });
-//addTo(map);
-
-    // create layer controls
-    // createLayerControls(); 
 
 d13PolygonGeoJSON.addTo(map);
 SchoolSizeGeoJSON.addTo(map);
