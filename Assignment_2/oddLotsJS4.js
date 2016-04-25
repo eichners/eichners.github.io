@@ -1,3 +1,4 @@
+
 var map = L.map('map').setView([40.71,-73.93], 12);
 
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
@@ -5,16 +6,28 @@ attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under 
 maxZoom: 19
 }).addTo(map);
 
+
+//$(document).ready(function () {
 var oddLotsGeoJSON;
 var NYBBgeoJSON;
-//var lotStyle;
+var lotStyle;
+var dataLayer;
+var lotClick;
+var choice;
 
-addNYBB(); 
 
-function addNYBB() {
+var dataLayer = L.geoJson(null, {
+    style: lotStyle,
+    onEachFeature: lotClick,
+});
+
+
+//addNYBB(); 
+
+//function addNYBB() {
 $.getJSON( "geojson/nybb.geojson", function( data ) {
     var NYBBPolygon = data; 
-//console.log('anything');
+    console.log('anything');
     var NYBBstyle = function (feature) {
         var value = feature.properties.BoroCode;
         if(value === 3){
@@ -53,19 +66,18 @@ $.getJSON( "geojson/nybb.geojson", function( data ) {
  //   console.log(data);
 
     NYBBgeoJSON = L.geoJson(NYBBPolygon, {
-        style: NYBBstyle
-    });
+    style: NYBBstyle
+}).addTo(map);
+//});
+//}
 
-    addOddLotsData();
-});
-}
+// STYLE FUNCTION FOR LOTS
+//function addOddLotsData() {
+//$.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM bk_oddlots_copy &format=GeoJSON', 
+//function (data) {
+ //   dataLayer = data;
 
-function addOddLotsData() {
-$.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM bk_oddlots_copy &format=GeoJSON', 
-function (data) {
-    var dataLayer = data;
-
-    var lotStyle = function (feature){
+    lotStyle = function (feature){
 
         var value = feature.properties.lottype;
         if(value === '1'){
@@ -99,32 +111,31 @@ function (data) {
 
         //console.log(feature);
         return style;
-    }
+   }
 
-    var lotClick = function (feature, dataLayer) {
+//LOT CLICK BINDPOPUP
+    lotClick = function (feature, dataLayer) {
         dataLayer.bindPopup("This odd lot address is " + 
             "<strong>" + feature.properties.address + "</strong>" + 
             " and it is owned by " + 
             "<strong>" + feature.properties.ownername + "</strong>");
     }
 
-    oddLotsGeoJSON = L.geoJson(dataLayer, {
-        style: lotStyle,
-        onEachFeature: lotClick
-    });
+ //   oddLotsGeoJSON = L.geoJson(dataLayer, {
+   //     style: lotStyle,
+  //      onEachFeature: lotClick
+  //  });
 
-    NYBBgeoJSON.addTo(map);
-    oddLotsGeoJSON.addTo(map);
-    map.fitBounds(oddLotsGeoJSON.getBounds());
-});
-}
+ //   NYBBgeoJSON.addTo(map);
+//    oddLotsGeoJSON.addTo(map);
+//    map.fitBounds(oddLotsGeoJSON.getBounds());
+//});
 
-//addOwnerData();
 //});
 
 function addDataToMap(dataLayer, choice) {
 $('.choice').change(function () {
-    console.log('anything');
+    console.log('something');
     var sql = 'SELECT * FROM bk_oddlots_copy';
           if ($(this).val() === 'lottype') {
           }
@@ -140,26 +151,26 @@ $('.choice').change(function () {
     $.getJSON(url)
 
     .done(function (data) {
-//    var ownerData = data;
-//console.log(data);
+        ownerData = data;
+        console.log(data);
 
     dataLayer.clearLayers();
     dataLayer.addData(data);
     });
- });
-} 
-$(document).ready(function () {
-    dataLayer = L.geoJson(null).addTo(map);
-    //addTileLayer(map);
-    addDataToMap(dataLayer, 'lottype');
+
+    dataLayer = L.geoJson(dataLayer, {
+        style: lotStyle,
+        onEachFeature: lotClick,
+        //addDataToMap(dataLayer, choice)
+   }).addTo(map);
+
     $('.choice').change(function () {
-        addDataToMap(dataLayer, $(this).val());
-    // not sure if this function should include the other addToMap calls
-    // ownerTypeGeoJSON.addTo(map);
+    addDataToMap(dataLayer, $(this).val());
     });
+    map.fitBounds(oddLotsGeoJSON.getBounds());
 }); 
-
-
+};
+});
 
 
 
