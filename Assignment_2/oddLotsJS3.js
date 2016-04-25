@@ -123,31 +123,32 @@ function (data) {
 //});
 
 function addDataToMap(dataLayer, choice) {
-$('.choice').change(function () {
-    console.log('anything');
-    var sql = 'SELECT * FROM bk_oddlots_copy';
-          if ($(this).val() === 'lottype') {
-          }
-          else {
-          sql += " WHERE lottype = '" + ($(this).val() + "'" );
-          }
-          console.log(sql);
+    $('.choice').change(function () {
+        console.log('something');
+        var sql = 'SELECT * FROM bk_oddlots_copy';
+            if ($(this).val() === 'lottype') {
+            }
+            else {
+                sql += " WHERE lottype = '" + ($(this).val() + "'" );
+            }
+            console.log(sql);
 
-    var url = 'https://eichnersara.cartodb.com/api/v2/sql?' + $.param({
-    q: sql,
-    format: 'GeoJSON'        
+        var url = 'https://eichnersara.cartodb.com/api/v2/sql?' + $.param({
+            q: sql,
+            format: 'GeoJSON'        
+        });
+        $.getJSON(url)
+
+        .done(function (data) {
+            //    var ownerData = data;
+            //console.log(data);
+
+            dataLayer.clearLayers();
+            dataLayer.addData(data);
+        });
     });
-    $.getJSON(url)
-
-    .done(function (data) {
-//    var ownerData = data;
-//console.log(data);
-
-    dataLayer.clearLayers();
-    dataLayer.addData(data);
-    });
- });
 } 
+
 $(document).ready(function () {
     dataLayer = L.geoJson(null).addTo(map);
     //addTileLayer(map);
