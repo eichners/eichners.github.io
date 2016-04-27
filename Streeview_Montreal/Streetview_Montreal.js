@@ -75,32 +75,42 @@ $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM listings &
     		onEachFeature: function(feature, layer){
             // I want to add an event handler and eventually put a streetview in it
                 layer.on('click', function () {
+                    console.log(layer.getLatLng());
+
         			// divs that will hold popup content -- STREET VIEW HERE TOO?:
         			var $content = $('<div></div>');
-                    var $streetViewDiv = $('<div></div>');
-    
+
+                    //var $streetViewDiv = $('<div></div>');
+                    
+    // need jquery function here to add new html element to content
                     $content.text('This place is in the neighborhood: ' +  feature.properties.neighbourhood + ' and it costs $' + feature.properties.price + ' a night.');
+                    
 
     // STREET VIEW OF LISTING LOCATION called with click, part of onEachFeature ****  right now lat and long don't seem to be defined and popup window is not adding streetview image           
                     // add an additional div with the streetview and style it separately
-                    function getStreetView(feature, latlng) {
-                    
+                    function getStreetView(latlng) {
+                        var lat = latlng.lat;
+                        var lng = latlng.lng;
                         var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?' + $.param({
                             size: '300x200',
                             location: lat + ',' + lng
                         });
-                        $('.streetview').attr('src', streetviewUrl);
-                        var coordinates = data.features[0].geometry.coordinates;
-                        getStreetView(coordinates[1], coordinates[0]);
+                        var $image = $('<img></img>');
+                        console.log(streetviewUrl);
+                        $image.attr('src', streetviewUrl);
+                        $content.append($image)
+                        
                     }
-                    // .addClass('streetview');
-                    // $streetViewDiv.append(getStreetView);
                     
-              $('.streetview-image');
-          //  };
-            layer.bindPopup ($content.html()).openPopup();
-          });    
-        },
+                    //$('.streetview-image');
+                    getStreetView(layer.getLatLng());
+                    layer.bindPopup ($content.html()).openPopup();
+                    //var lat = data.features[0].geometry.coordinates;
+                   
+
+                });    
+            
+            },
 				
             style: function (feature) {
                 var value = feature.properties.listings;

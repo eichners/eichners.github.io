@@ -52,10 +52,10 @@ html, body, #map {
 }
 
 .streetview {
-  position: absolute;
-  bottom: 10px;
+  padding: 5px;
   left: 10px;
   width: 300px;
   height: 200px;
   z-index: 5000;
 }
+
