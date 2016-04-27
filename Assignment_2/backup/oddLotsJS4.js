@@ -16,10 +16,10 @@ var lotClick;
 var Choice;
 
 
-// var dataLayer = L.geoJson(null, {
-//     style: lotStyle,
-//     onEachFeature: lotClick,
-// });
+var dataLayer = L.geoJson(null, {
+    style: lotStyle,
+    onEachFeature: lotClick,
+});
 
 
 $.getJSON( "geojson/nybb.geojson", function( data ) {
@@ -121,55 +121,52 @@ lotClick = function (feature, dataLayer) {
 Choice = function addDataToMap(dataLayer, feature) {
     $('.choice').change(function () {
         console.log('something');
+        //nothing logging here, need to add this to map bleow
         var sql = 'SELECT * FROM bk_oddlots_copy';
-        if ($(this).val() === 'lottype') {
-            sql;
-        }
-        else {
-            sql += " WHERE lottype = '" + ($(this).val() + "'" );
-        }
-            console.log(sql);
+              if ($(this).val() === 'lottype') {
+              }
+              else {
+              sql += " WHERE lottype = '" + ($(this).val() + "'" );
+              }
+              console.log(sql);
 
         var url = 'https://eichnersara.cartodb.com/api/v2/sql?' + $.param({
             q: sql,
             format: 'GeoJSON'        
         });
-       
-        $.getJSON(url).done(function (data) {
-            console.log(data);
+        
+        $.getJSON(url)
+
+        .done(function (data) {
+            //ownerData = data;
+            //console.log(data);
+            style: lotStyle;
+            onEachFeature: lotClick;
+
             dataLayer.clearLayers();
             dataLayer.addData(data);
-            map.fitBounds(dataLayer.getBounds());
         });
-        // trying to get data to load by adding .change with no arguments to show choice when nothing is selected. 
-        // get error wherever I put it; when moved before $.getJSON error shows dataLayer is not defined or it's not a $.param ..change is not a function 
-        // .change();      
     })
-    // .change(); when tried here, maximum call stack size exceeded 
 } 
 
-$('.choice').change(function () {
-    Choice(dataLayer, $(this).val());//Choice);
-    console.log(Choice);
-    // upon loading page nothing is logged for Choice
-    // first selection: Choice logs out function text from line 23 where Choice is set. 
-    // second selection shows sql and data on map shows. 
-    // third selection logs sql twice
-    // 4th selection logs sql 3 times
-});
-
 $(document).ready(function () {
-    dataLayer = L.geoJson(null, {  
-        style: lotStyle,
-        onEachFeature: lotClick,
-    }).addTo(map);
-})
-
+    dataLayer = L.geoJson(null).addTo(map);
+    style: lotStyle;
+    onEachFeature: lotClick;
+        //Choice: addDataToMap,
+    //Choice(dataLayer, 'lottype');
+        // how do I add the option/change data here? 
+        //addDataToMap(choice)
+    $('.choice').change(function () {
+        Choice(dataLayer, $(this).val());
+      //  map.fitBounds(dataLayer.getBounds());
+    });
 
     //dataLayer = L.geoJson(data, {
         //style: lotStyle,
        // onEachFeature: lotClick,
     //});  
+});
 
 
 
