@@ -51,11 +51,5 @@ html, body, #map {
  background: orange;
 }
 
-.streetview {
-  padding: 5px;
-  left: 10px;
-  width: 300px;
-  height: 200px;
-  z-index: 5000;
-}
+
 
