@@ -41,7 +41,9 @@ NYBBstyle = function (feature) {
         };
         return style;
     }
- console.log('is it adding polygon layer?');
+    console.log('is it adding polygon layer?');
+
+
 var lotStyle;
 var lotClick;
 
@@ -81,6 +83,7 @@ lotStyle = function (feature){
     return style;
 }
 
+
 //LOT CLICK BINDPOPUP
 lotClick = function (feature, dataLayer) {
     dataLayer.bindPopup("This odd lot address is " + 
@@ -88,40 +91,24 @@ lotClick = function (feature, dataLayer) {
         " and it is owned by " + 
         "<strong>" + feature.properties.ownername + "</strong>");
 }
+
 var NYBBgeoJSON = L.geoJson(null, {
         style: NYBBstyle     
-    }).addTo(map);
+}).addTo(map);
 
 var dataLayer = L.geoJson(null, {  
         style: lotStyle,
         onEachFeature: lotClick,
-    }).addTo(map);
-
-//$(document).ready(function () {
-//var oddLotsGeoJSON;
-//var NYBBgeoJSON;
+}).addTo(map);
 
 var Choice;
 var NYBBstyle
 
-//addNYBB();
-//function addNYBB() {
 $.getJSON( "geojson/nybb.geojson", function( data ) {
     var NYBBpolygon = data;   
- NYBBgeoJSON.addData(data);
- NYBBgeoJSON.bringToBack();
-
-
+    NYBBgeoJSON.addData(data);
+    NYBBgeoJSON.bringToBack();
 });
-
-//}
-
-// STYLE FUNCTION FOR LOTS
-//function addOddLotsData() {
-//$.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM bk_oddlots_copy &format=GeoJSON', 
-//function (data) {
- //   dataLayer = data;
-
 
 
 /// CHOICE/OPTION FUNCTION 
@@ -136,7 +123,7 @@ Choice = function addDataToMap(dataLayer, feature) {
     else {
         sql += " WHERE lottype = '" + feature + "'";
     }
-        console.log(sql);
+    console.log(sql);
 
     var url = 'https://eichnersara.cartodb.com/api/v2/sql?' + $.param({
         q: sql,
@@ -153,15 +140,11 @@ Choice = function addDataToMap(dataLayer, feature) {
 } 
 
 $(document).ready(function () {
-
-            console.log('is it adding oddlots layer?');
-
-$('.choice').change(function () {
-    Choice(dataLayer, $(this).val());//Choice);
+    console.log('is it adding oddlots layer?');
+    $('.choice').change(function () {
+        Choice(dataLayer, $(this).val());//Choice);
     })
-.change(); 
-//NYBBgeoJSON.addTo(map);
-
+    .change(); 
 })
 
 
