@@ -7,17 +7,6 @@ $(document).ready(function () {
 	var getStreetView;
 
 
-// STREETVIEW FUNCTION TO BE SET WTIH LISTINGS LOCATION:
-// I moved this into the object that sets the popup windows. should it stay here?
-	// lalt long have to come from listings layer define outside of that object
-    //function getStreetview(lat, lng) {
-    //var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?' + $.param({
-     //       size: '300x300',
-     //       location: lat + ',' + lng
-       // });
-    //    $('.streetview').attr('src', streetviewUrl);
-    //}	
-
 // SEARCH LAYER 
     var searchLayer = L.geoJson(null, {
         onEachFeature: function (feature, layer) {
@@ -63,58 +52,87 @@ maxZoom: 19
 // LISTINGS MARKERS, POPUPS with text and  STREETVIEW 
 $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM listings &format=GeoJSON')
     .done(function (data) {
-        L.geoJson(data, {
+        var listings = data;
+        console.log(data);
+       // L.geoJson(data, {
         // set streetView: latlng variable here?		 
 		 
-    // CREATE CIRCLE MARKER LAYER FROM GEOJSON LATLNG POINTS
-            pointToLayer: function (feature, latlng) {
-              return L.circleMarker(latlng);
-            },
-		
-    // CREATE LISTENER LAYER TO CONNECT LISTINGS POINTS TO POPUP WINDOWS
-    		onEachFeature: function(feature, layer){
-            // I want to add an event handler and eventually put a streetview in it
-                layer.on('click', function () {
-        			// divs that will hold popup content -- STREET VIEW HERE TOO?:
-        			var $content = $('<div></div>');
-                    var $streetViewDiv = $('<div></div>');
-    
-                    $content.text('This place is in the neighborhood: ' +  feature.properties.neighbourhood + ' and it costs $' + feature.properties.price + ' a night.');
+// CREATE CIRCLE MARKER LAYER FROM GEOJSON LATLNG POINTS
+            var listingsPointToLayer = function (feature, latlng) {
 
-    // STREET VIEW OF LISTING LOCATION called with click, part of onEachFeature ****  right now lat and long don't seem to be defined and popup window is not adding streetview image           
+                var listingPrice = feature.properties.price 
+                //console.log(data);          
+
+                var listingMarker = L.circleMarker(latlng, {
+                        radius: markerRadius(listingPrice),
+                        stroke: false,
+                        fillOpacity: 0.5,
+                        fillColor: markerColor(listingPrice)                    
+                    });
+                return listingMarker;
+            }
+
+            function markerRadius (listingPrice) {
+                return  listingPrice > 3000 ? 30 :
+                        listingPrice > 2000 ? 25 :
+                        listingPrice > 1000 ? 20 :
+                        listingPrice > 500 ? 15 :
+                        listingPrice > 250 ? 10 :
+                        listingPrice > 150 ? 8 :
+                        listingPrice > 100 ? 6 :
+                        listingPrice > 0 ? 4 :
+                                2 ;
+            }
+
+            function markerColor (listingPrice) {
+                return  listingPrice > 3000 ? '#2171b5' :
+                        listingPrice > 2000 ? '#1588f' :
+                        listingPrice > 1000 ? '#72b3f4' :
+                        listingPrice > 500 ? '#fe8a17' :
+                        listingPrice > 250 ? '#fe8a17' :
+                        listingPrice > 150 ? '#FF0080' :
+                        listingPrice > 100 ? '#ff084a' :
+                        listingPrice > 0 ? 'red' :
+                                '#1A68B2' ;
+            }
+		
+
+// CREATE LISTENER LAYER TO CONNECT LISTINGS POINTS TO POPUP WINDOWS
+        var listingClick = function (feature, layer) {
+    		//onEachFeature: function(feature, layer){
+            // add an event handler and eventually put a streetview in it
+                layer.on('click', function () {
+                    console.log(layer.getLatLng());
+        			// divs that will hold popup content:
+        			var $content = $('<div></div>');
+                    //var $streetViewDiv = $('<br/><div></div>');
+                    // need jquery funciton here to add new html element to content for streetview
+                    $content.text('This place is in the neighborhood: ' +  feature.properties.neighbourhood + ' and it costs $' + feature.properties.price + ' a night.' );
+
+// STREET VIEW OF LISTING LOCATION called with click, part of onEachFeature       
                     // add an additional div with the streetview and style it separately
-                    function getStreetView(feature, latlng) {
-                    
+                    function getStreetView(latlng) {
+                        var lat = latlng.lat;
+                        var lng = latlng.lng;
                         var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?' + $.param({
                             size: '300x200',
                             location: lat + ',' + lng
                         });
-                        $('.streetview').attr('src', streetviewUrl);
-                        var coordinates = data.features[0].geometry.coordinates;
-                        getStreetView(coordinates[1], coordinates[0]);
+                        var $image = $('<img></img>');
+                        console.log(streetviewUrl);
+                        $image.attr('src', streetviewUrl);
+                        $content.append($image)                
                     }
-                    // .addClass('streetview');
-                    // $streetViewDiv.append(getStreetView);
-                    
-              $('.streetview-image');
-          //  };
-            layer.bindPopup ($content.html()).openPopup();
-          });    
-        },
-				
-            style: function (feature) {
-                var value = feature.properties.listings;
-                    var style = {
-                        radius: 4,
-                        stroke: false,
-                        fillOpacity: 0.5,
-                        fillColor: 'red'
-                    };
-                return style;
-            }
- 
-      }).addTo(map);  
-//    });
+
+                getStreetView(layer.getLatLng());
+                layer.bindPopup ($content.html()).openPopup();
+            });  
+        } 
+    L.geoJson(listings, {
+        pointToLayer: listingsPointToLayer,
+        onEachFeature: listingClick
+    }).addTo(map);    
+    
 
 
 // GET LISTINGS DATA AND SHOW IN SEPARATE LIST
@@ -134,4 +152,3 @@ $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM listings &
     });
 }); 
 });
-//});

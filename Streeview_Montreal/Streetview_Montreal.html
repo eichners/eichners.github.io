@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       <link type="text/css" rel="stylesheet" href="libraries/leaflet-0.7.3/leaflet.css"/>
       <link type="text/css" rel="stylesheet" href="Streetview_Montreal.css"/>
   <meta charset="utf-8">
-  <title>add popups, streetview, and data list</title>
- </head>
+  <title>Montreal Airbnb</title>
+</head>
+
 <body>
 
   <div id="map"></div>
-  <img class="streetview" src ="streetview-image"></img>
   <input type="search" placeholder="search me" class="search" />
   
   <div class="listings">
-  the total number <br/>of listings is: $<span class="total"></span><br/>
-  the average price is: $<span class="average"></span><br/>
-  the minimum price is: $<span class="minimum"></span><br/>
-  the maximum price is: $<span class="maximum"></span>
+  AIRBNB LISTINGS IN MONTREAL<br/>
+  Total number of listings: <span class="total"></span><br/>
+  Average price: $<span class="average"></span><br/>
+  Minimum price: $<span class="minimum"></span><br/>
+  Maximum price: $<span class="maximum"></span>
   </div>
+
     <script type="text/javascript" src="libraries/jQuery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="libraries/leaflet-0.7.3/leaflet.js"></script>
+    <script type="text/javascript" src="libraries/d3/d3.min.js"></script>
     <script type="text/javascript" src="Streetview_Montreal.js"></script>
 </body>
+
 </html>

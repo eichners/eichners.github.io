@@ -5,12 +5,12 @@ html, body {
 }
 
 div {
-  width: 200px;
+  width: 420px;
   margin: 30px;
 }
 
 h2 {
-  font: 400 30px/1.5 Helvetica, Verdana, sans-serif;
+  font: 400 25px/1.5 Helvetica, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -22,7 +22,7 @@ ul {
 }
  
 li {
-  font: 200 17px/1.5 Helvetica, Verdana, sans-serif;
+  font: 200 14px/1.75 Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
 }
  
@@ -34,7 +34,7 @@ li a {
   text-decoration: none;
   color: #000;
   display: block;
-  width: 260px;
+  width: 420px;
  
   -webkit-transition: font-size 0.4s ease, background-color 0.4s ease;
   -moz-transition: font-size 0.4s ease, background-color 0.4s ease;
@@ -44,6 +44,6 @@ li a {
 }
 
 li a:hover {
-  font-size: 21px;
+  font-size: 16px;
   background: #f6f6f6;
 }
