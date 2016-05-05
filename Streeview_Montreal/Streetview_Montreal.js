@@ -103,13 +103,23 @@ $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM listings &
             // add an event handler and eventually put a streetview in it
                 layer.on('click', function () {
                     console.log(layer.getLatLng());
-
+<<<<<<< HEAD
         			// divs that will hold popup content:
         			var $content = $('<div></div>');
                     //var $streetViewDiv = $('<br/><div></div>');
                     // need jquery funciton here to add new html element to content for streetview
                     $content.text('This place is in the neighborhood: ' +  feature.properties.neighbourhood + ' and it costs $' + feature.properties.price + ' a night.' );
+=======
 
+        			// divs that will hold popup content -- STREET VIEW HERE TOO?:
+        			var $content = $('<div></div>');
+
+                    //var $streetViewDiv = $('<div></div>');
+                    
+    // need jquery function here to add new html element to content
+                    $content.text('This place is in the neighborhood: ' +  feature.properties.neighbourhood + ' and it costs $' + feature.properties.price + ' a night.');
+                    
+>>>>>>> origin/master
 
 // STREET VIEW OF LISTING LOCATION called with click, part of onEachFeature       
                     // add an additional div with the streetview and style it separately
@@ -123,6 +133,7 @@ $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM listings &
                         var $image = $('<img></img>');
                         console.log(streetviewUrl);
                         $image.attr('src', streetviewUrl);
+<<<<<<< HEAD
                         $content.append($image)                
                     }
 
@@ -135,7 +146,35 @@ $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM listings &
         onEachFeature: listingClick
     }).addTo(map);    
     
+=======
+                        $content.append($image)
+                        
+                    }
+                    
+                    //$('.streetview-image');
+                    getStreetView(layer.getLatLng());
+                    layer.bindPopup ($content.html()).openPopup();
+                    //var lat = data.features[0].geometry.coordinates;
+                   
 
+                });    
+            
+            },
+				
+            style: function (feature) {
+                var value = feature.properties.listings;
+                    var style = {
+                        radius: 4,
+                        stroke: false,
+                        fillOpacity: 0.5,
+                        fillColor: 'red'
+                    };
+                return style;
+            }
+ 
+      }).addTo(map);  
+//    });
+>>>>>>> origin/master
 
 
 // GET LISTINGS DATA AND SHOW IN SEPARATE LIST
