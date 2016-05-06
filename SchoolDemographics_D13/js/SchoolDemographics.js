@@ -81,15 +81,12 @@ $.getJSON( "geojson/SchoolDemographics_WGS84_.geojson", function( data ) {
     
 });
     // function to plot the dataset passed to it -- does this mean I can now access data with d when using d3?
-    function plotDataset(dataset) {
+function plotDataset(dataset) {
     SchoolDemographicsGeoJSON = L.geoJson(dataset, {
         style: schoolStyle,
         onEachFeature: schoolsOnEachFeature
-
-
     }).addTo(map);
-    }
-       // createLayerControls(); 
+}
 }
 
     var schoolStyle = function (feature, geometry) {
