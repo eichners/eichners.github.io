@@ -3,7 +3,27 @@
   font-weight: bold;
 }
 
-html, body, #map {
+body {
+    padding: 0;
+    margin: 0;
+}
+html {
+	position: float-right;
     height: 100%;
     width: 100%;
+} 
+
+#map {
+	position: float-right;
+    height: 100%;
+    width: 24%;
 }
+#info {
+	information: 0;	
+}
+ 
+html, body, {
+	position: float-right;
+    height: 100%;
+    width: 74%;
+} 

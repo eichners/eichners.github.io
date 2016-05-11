@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Odd Lots Brooklyn</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Cutive+Mono' >
+    <link type="text/css" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../libraries/bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../libraries/leaflet-0.7.3/leaflet.css"/>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css"/> 
+    <link type="text/css" rel="stylesheet" href="ExploreMap_OddLots.css"/> 
+</head>
+
+<body>
+<div id="map"></div>
+<script type="infowindow/html" id="infowindow_template">
+    <div class="cartodb-popup">
+        <a href="#close" class="cartodb-popup-close-button close">x</a>
+             <div class="cartodb-popup-content-wrapper">
+                <div class="cartodb-popup-content">
+                    <p style="font-family:monospace;">{{address}}</p>
+                    <p style="font-family:monospace;">owner:<br/> <b>{{ownername}}</b></p>
+                </div>
+            </div>
+        <div class="cartodb-popup-tip-container"></div>
+    </div>
+</script>
+
+<div class="cartodb-tooltip-content-wrapper">
+  <div class="cartodb-tooltip-content">
+    <p style="font-family:monospace;"><b>{{address}}</b></p>
+    <p style="font-family:monospace;">bbl #: {{bbl}}</p>
+    <p style="font-family:monospace;">lot frontage: {{lotfront}} sf</p>
+    <p style="font-family:monospace;">sanborn map: {{sanborn}}</p>
+    <p style="font-family:monospace;">school district: {{schooldist}}</p>
+    <p style="font-family:monospace;">lot area: {{shape_area}} sf</p>
+    <p style="font-family:monospace;">owner:<br/> <b>{{ownername}}</b></p>
+     
+  </div>
+</div>
+
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+<script src="ExploreMap_OddLots.js"></script>
+
+</body>
+</html>

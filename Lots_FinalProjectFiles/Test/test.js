@@ -1,6 +1,6 @@
 var map = L.map('map').setView([40.71,-73.93], 15);
 
-L.tileLayer('https://api.mapbox.com/styles/v1/eichners/cinyxauhx0000a4np96vnt14t/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZWljaG5lcnMiLCJhIjoiY2lrZzVneDI4MDAyZ3VkbTZmYWlyejUzayJ9.vEGckM-D3AjV4jXmdibXyw',{
+L.tileLayer('https://api.mapbox.com/styles/v1/eichners/cinw030m3001mb1maj9859kvm/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZWljaG5lcnMiLCJhIjoiY2lrZzVneDI4MDAyZ3VkbTZmYWlyejUzayJ9.vEGckM-D3AjV4jXmdibXyw',{
 attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
 maxZoom: 19
 }).addTo(map);
@@ -38,15 +38,13 @@ return style;
 ////////////// STREET VIEW FUNCTION
 lotClick = function (feature, layer) {
 
-	layer.on('click', function (){
-		console.log(data);
+	layer.on(layer, function (){
 		console.log(feature.geometry);
 		var $content = $('<div></div>');
 		$content.text("<strong>" + feature.properties.address + "<br/" + "</strong>" + 
         "owner: " + "<strong>" + feature.properties.ownername + "</strong>");
         
-        function getStreetView(latlng) {
-        	console.log(click);
+        /*function getStreetView(latlng) {
         	console.log(lat, lng);
         		var lat = feature.geometry.coordinates[1];
                 var lng = feature.geometry.coordinates[0];
@@ -60,9 +58,9 @@ lotClick = function (feature, layer) {
                     $image.attr('src', streetviewUrl);
                     $content.append($image)                
                 }
-                getStreetView(lat, lng());
+                getStreetView(layer.getLatLng());
                 layer.bindPopup ($content.html()).openPopup();
-            });  
+            });  */
       }
 L.geoJson(lotDataset, {
 	onEachFeature: lotClick,

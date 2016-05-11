@@ -173,8 +173,8 @@ legend.onAdd = function (map) {
     // circles for legend are svg elements
         div.innerHTML += 
             '<p><b>District 13, Brooklyn</b><br />' +
-            '<svg class="left" width="22" height="20"><circle cx="10" cy="14" r="6" class="legendSvg1"/></svg><span>Charter School</span><br />' +
-            '<svg class="left" width="22" height="20"><circle cx="10" cy="14" r="6" class="legendSvg2"/></svg><span>Public School</span><br /></p>' +
+            '<svg class="left" width="22" height="20"><rect x="5" y="8" height ="12" width ="14" class="legendSvg1"/></svg><span> Charter School</span><br />' +
+            '<svg class="left" width="22" height="15"><rect x="5" y="3" height ="12" width ="14" class="legendSvg2"/></svg><span> Public School</span><br /></p>' +
             '<p><b>Data</b><br />' +
             '<span>from the <a href=\"http://schools.nyc.gov/default.htm\">NYC DOE</a><br />' + 
             'and <a href=\"http://www.insideschools.org\">InsideSchools.org</a></span><br /></p>';
