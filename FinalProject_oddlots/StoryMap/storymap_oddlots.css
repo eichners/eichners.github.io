@@ -18,6 +18,14 @@ margin: 20px;
 #hover {
 }
 
+.main .small {
+  font-family: 'Cutive Mono', monospace;
+  font-size: 8;
+  font-style: normal;
+    font-weight: bold;
+    color: black;
+}
+
 .main p {
 	font-family: 'Cutive Mono', monospace;
 	font-style: normal;

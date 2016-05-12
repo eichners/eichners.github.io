@@ -82,15 +82,17 @@ var datalayer;
 var latlng;
 
 function addStreetView() {
-  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT *, ST_AsGeoJSON(ST_Centroid(the_geom)) FROM oddlots_brooklyn &format=GeoJSON')
+  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT *, ST_X(ST_Centroid(the_geom)) AS long, ST_Y(ST_Centroid(the_geom)) AS lat FROM oddlots_brooklyn &format=GeoJSON')
   .done(function (data) {
     var lotData = data;
-    console.log(data);
+   // console.log(data);
+
+
 
 
 // LOT STYLES
   var lotStyle = function (feature) {
-    console.log(feature);
+    //console.log(feature);
     var style = {
       weight: 2,
       color: "red",
@@ -104,20 +106,21 @@ function addStreetView() {
 // // STREET VIEW OF LISTING LOCATION called with click, part of onEachFeature       
   var locationClick = function (feature, layer) {
       layer.on('click', function (){
-        console.log(feature.properties.st_asgeojson);
+        console.log(feature.properties);
         // log returns: {"type":"Point","coordinates":[-74.0203155304032,40.65304806905]}
         console.log('click');
-      
+        lat = feature.properties.lat;
+        lng = feature.properties.long;
       var $content = $('<div></div>');
        //$content.text('Owner: ' +  feature.properties.ownername + '<br/>' + feature.properties.address);
       var location = (lat + ',' + lng);
-  
+          console.log(lat, lng);
 
   // CALL STREETVIEW WITH CLICK AND SEND IT TO POPUP WINDOW 
+
       function getStreetView(layer, properties) {
-        lat = feature.properties.st_asgeojson[1];
-        lng = feature.properties.st_asgeojson[0];
-        console.log(feature.properties.st_asgeojson);
+
+        console.log(feature.properties.long);
    
         var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?' + $.param({
           size: '300x200',
@@ -135,7 +138,7 @@ function addStreetView() {
     });
   };
 
-      streetViewGeoJSON  = L.geoJson(lotData, {
+      streetViewGeoJSON = L.geoJson(lotData, {
       onEachFeature: locationClick,
       style:lotStyle,
   }).addTo(map);
