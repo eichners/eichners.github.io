@@ -26,17 +26,17 @@ html, body, #map {
 .leaflet-popup-content-wrapper {
   color: white;
   font-family: monospace;
-  width: 340 px;
+  width: auto;
   height: auto;
   background-color: red;
 }
 
-.leaflet-popup-content {
-  width: 324px;
-  padding: 12 px;
-  word-break:break-word;
-}
-
 .leaflet-popup-tip {
  background: red;
+}
+
+.leaflet-popup-content {
+  width: auto;
+  padding: 12 px;
+  word-break:break-word;
 }
