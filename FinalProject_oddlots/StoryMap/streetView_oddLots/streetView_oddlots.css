@@ -26,7 +26,7 @@ html, body, #map {
 .leaflet-popup-content-wrapper {
   color: white;
   font-family: monospace;
-  width: auto;
+  width: 340px;
   height: auto;
   background-color: red;
 }
