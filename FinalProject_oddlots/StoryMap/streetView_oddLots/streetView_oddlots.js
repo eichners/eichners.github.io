@@ -146,7 +146,7 @@ function addStreetView() {
     bufferDataGeoJSON.addTo(map);
     lotGroupsGeoJSON.addTo(map);
     streetViewGeoJSON.addTo(map);
-   // map.fitBounds(streetViewGeoJSON.getBounds());
+    //map.fitBounds(streetViewGeoJSON.getBounds());
  
 });
 };

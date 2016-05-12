@@ -24,19 +24,19 @@ html, body, #map {
 
 
 .leaflet-popup-content-wrapper {
-  color:white;
+  color: white;
   font-family: monospace;
   width: 340 px;
   height: auto;
-  background-color: orange;
+  background-color: red;
 }
 
 .leaflet-popup-content {
-  width: 324;
+  width: 324px;
   padding: 12 px;
   word-break:break-word;
 }
 
 .leaflet-popup-tip {
- background: orange;
+ background: red;
 }
