@@ -16,7 +16,7 @@ addBufferData();
 
 function addBufferData() {
 //function addBufferedData() {
- $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT ST_Transform(ST_Buffer(the_geom_webmercator, 300), 4326) AS the_geom FROM bk_oddlots_copy &format=GeoJSON')
+ $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT ST_Transform(ST_Buffer(the_geom_webmercator, 300), 4326) AS the_geom FROM oddlots_brooklyn_lotarea &format=GeoJSON')
    .done(function (data) {
     //console.log(data);
     var bufferData = data;
@@ -24,10 +24,10 @@ function addBufferData() {
     var bufferStyle = function (feature, latlng) {
 
         var style = {
-            weight: 2,
+            stroke: false,
             color:"#1381ab",
-            fillColor: 'White',
-            fillOpacity: 0.5
+            fillColor: 'green',
+            fillOpacity: 0.2
         };
         return style;
     };
@@ -42,15 +42,15 @@ function addBufferData() {
 
 // GROUP FUNCTION CONVEX HULL
 function addGroupData() {
-  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT ST_Transform(ST_Convexhull(ST_Collect(the_geom_webmercator)), 4326) AS the_geom FROM bk_oddlots_copy GROUP BY schooldist &format=GeoJSON')
+  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT ST_Transform(ST_Convexhull(ST_Collect(the_geom_webmercator)), 4326) AS the_geom FROM oddlots_brooklyn_lotarea GROUP BY schooldist &format=GeoJSON')
   .done(function (data) {
     var groupData = data;
     //console.log(data);
 
     var groupStyle = function (feature) {
       var style = {
-        weight: 2,
-        color:"green",
+        weight: 1.5,
+        color:"#3E7BB6",
         fillColor: 'White',
         fillOpacity: 0.5
       };
@@ -58,15 +58,15 @@ function addGroupData() {
   }
 
 // BIND POUPUP ON GROUPINGS
-  var groupClick = function (Feature, layer) {
-    var popupContent = 'Odd Lots grouped by school district and buffered by 300 meters'
-       // map.on('click', function(e) {
-       // alert(e.latlng); 
-       // });
-    layer.bindPopup(popupContent)
-  }
+  // var groupClick = function (Feature, layer) {
+  //   var popupContent = 'Odd Lots grouped by school district and buffered by 300 meters'
+  //      // map.on('click', function(e) {
+  //      // alert(e.latlng); 
+  //      // });
+  //   layer.bindPopup(popupContent)
+  // }
   lotGroupsGeoJSON = L.geoJson(groupData, {
-    onEachFeature: groupClick,
+    //onEachFeature: groupClick,
     style:groupStyle,
   }).addTo(map);
 
@@ -82,7 +82,7 @@ var datalayer;
 var latlng;
 
 function addStreetView() {
-  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT *, ST_X(ST_Centroid(the_geom)) AS long, ST_Y(ST_Centroid(the_geom)) AS lat FROM oddlots_brooklyn &format=GeoJSON')
+  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT *, ST_X(ST_Centroid(the_geom)) AS long, ST_Y(ST_Centroid(the_geom)) AS lat FROM oddlots_brooklyn_lotarea &format=GeoJSON')
   .done(function (data) {
     var lotData = data;
    // console.log(data);
@@ -151,40 +151,3 @@ function addStreetView() {
 });
 };
 });
-
-//};
-//});
-
-    // gave up on following: STREETVIEW
-  //// I wanted to add street view photos of closest location to lot here:
-  // how do I add the lat long from console.log(data):which returns:
-  // 
-
-   // var getStreetView = function (lat, lng) {
-  //    var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?' + $.param({
-  //    size: '300x300',
-  //    location: lat + ',' + lng
-  //    });
-//      $('.streetview').attr('src', streetviewUrl);
-//    }
-
-   // var locationClick = function (Feature, latlng) {
-   //     var popupContent = getStreetViewPhoto;
-   //     layer.bindPopup(popupContent)
-   //   }
-    //    .done(function(data) {
-    //   searchLayer.addData(data.features);
-    //   map.fitBounds(searchLayer.getBounds());
-
-    //   var coordinates = data.features[0].geometry.coordinates;
-    //   getStreetview(coordinates[1], coordinates[0]);
-    // });
-
-
-//});
-
-
-
-
-
-
