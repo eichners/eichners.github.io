@@ -101,7 +101,7 @@
             
 
             // changes made to plug in file: changed create map function so that plugin will work with the cartodb createVis
-            // because it needs a leaflet map, needed to create map from cartodb before plugin funcitons run. 
+            // because it needs a leaflet map, needed to create map from cartodb before plugin functions run. 
             // moved variables to outside of the .done function, and functions that recenter the map to inside
             // the .done function so that data is loaded before function is called
 

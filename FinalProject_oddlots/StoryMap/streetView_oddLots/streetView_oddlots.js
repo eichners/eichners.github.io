@@ -24,10 +24,10 @@ function addBufferData() {
     var bufferStyle = function (feature, latlng) {
 
         var style = {
-            stroke: false,
+            weight: 1,
             color:"#1381ab",
-            fillColor: 'green',
-            fillOpacity: 0.2
+            fillColor: '#f4f4f0',
+            fillOpacity: 0.5
         };
         return style;
     };
