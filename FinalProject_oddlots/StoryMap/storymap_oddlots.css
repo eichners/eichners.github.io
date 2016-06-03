@@ -19,32 +19,30 @@ margin: 20px;
 }
 
 .main .small {
-  font-family: 'Cutive Mono', monospace;
+  font-family: 'Cutive Mono', sanserif;
   font-size: 8;
   font-style: normal;
-  font-weight: bold;
   color: black;
   line-height:150%;
 }
 
 .main p {
-	font-family: 'Cutive Mono', monospace;
+	font-family: 'Cutive Mono', sanserif;
 	font-style: normal;
-  font-weight: bold;
   color: black;
   line-height:150%;
 }
 
 .main h3 {
 	font-size: 18px;
-	font-family: 'Cutive Mono', monospace;
+	font-family: 'Cutive Mono', sanserif;
 	font-style: normal;
   font-weight: bold;
   color: black;
 }
 
 .main h2 {
-	font-family: 'Cutive Mono', monospace;
+	font-family: 'Cutive Mono', sanserif;
 	font-style: normal;
   font-weight: bold;
   color: black;
@@ -52,7 +50,7 @@ margin: 20px;
 }
 
 .main h1 {
-	font-family: 'Cutive Mono', monospace;
+	font-family: 'Cutive Mono', sanserif;
 	font-style: normal;
   font-weight: bold;
   color: black;
