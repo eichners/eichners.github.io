@@ -1,0 +1,35 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+html, body, #map {
+    height: 100%;
+}
+
+    #hover {
+                background: #333;
+                width: 150px;
+                position: absolute;
+                padding: 5px;
+                color: #aaa;
+            }
+
+.leaflet-popup-content-wrapper {
+  color:white;
+  width:350;
+  height: auto;
+  background-color: orange;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+  width: 350px;
+  margin: auto;
+  padding: 10px;
+  padding-right: 10px;
+  word-break:break-word;
+}
+
+.leaflet-popup-tip {
+ background: orange;
+}
