@@ -3,7 +3,7 @@
 // 3. put that streetview into a popup
 
 $(document).ready(function () {
-    var map = L.map('map').setView([45.489502,-73.578873], 10);
+    var map = L.map('map').setView([45.547165, -73.690764], 12);
 	var getStreetView;
 
 
@@ -155,3 +155,22 @@ $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM listings &
     });
 }); 
 });
+
+// // create a container for the legend and locate below data on right
+// var legend = L.control({position: 'bottomleft'});
+// legend.onAdd = function (map) {
+//     var div = L.DomUtil.create('div', 'info legend');
+//     // this is an html legend instead of leaflet generated through functions
+//     // circles for legend are svg elements
+//         div.innerHTML += 
+//             '<p><b>District 13, Brooklyn</b><br />' +
+//             '<svg class="left" width="22" height="20"><rect x="5" y="8" height ="12" width ="14" class="legendSvg1"/></svg><span> Charter School</span><br />' +
+//             '<svg class="left" width="22" height="15"><rect x="5" y="3" height ="12" width ="14" class="legendSvg2"/></svg><span> Public School</span><br /></p>' +
+//             '<p><b>Data</b><br />' +
+//             '<span>from the <a href=\"http://schools.nyc.gov/default.htm\">NYC DOE</a><br />' + 
+//             'and <a href=\"http://www.insideschools.org\">InsideSchools.org</a></span><br /></p>';
+//     return div;
+// }
+// // add the legend to the map
+// legend.addTo(map);
+

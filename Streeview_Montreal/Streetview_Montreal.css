@@ -53,3 +53,24 @@ html, body, #map {
 
 
 
+
+svg .left { 
+    fill:  #3798d2;
+    stroke: black; 
+    stroke-width: 0.5;
+    opacity: 0.75;
+}
+
+.svg1 { 
+    fill: #3798d2; 
+    stroke-width: 0.5;
+    opacity: 0.9;
+}
+
+svg .legend { 
+    fill: #9bcc31;
+    stroke: black; 
+    stroke-width: 0.5;
+    opacity: 0.9;
+}
+

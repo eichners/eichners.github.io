@@ -15,15 +15,41 @@
   <div id="map"></div>
 
   <input type="search" placeholder="search me" class="search" />
-  
+
   <div class="listings">
-  AIRBNB LISTINGS IN MONTREAL<br/>
+  <p><b>AIRBNB LISTINGS IN MONTREAL</b></p>
+    <p>Click location for streetview and price</p>
+    <br/>
   Total number of listings: <span class="total"></span><br/>
   Average price: $<span class="average"></span><br/>
   Minimum price: $<span class="minimum"></span><br/>
-  Maximum price: $<span class="maximum"></span
+  Maximum price: $<span class="maximum"></span>
+  <br/>
+
+    <br/>
+    <p><b>listings sized by price</b><br />
+      <br/>
+      <svg height="60" width="60">
+        <ellipse cx="25" cy="25" rx="25" ry="25"
+        style="fill:#2171b5;fill-opacity:0.5" />
+      </svg><br/>
+      <span> over $3000 per night</span><br />
+        <svg height="40" width="50">
+          <ellipse cx="25" cy="22" rx="9" ry="9"
+          style="fill:#ff084a;fill-opacity:0.5" />
+        </svg><br/>
+        <span> $250 - $500</span><br />
+        
+        <svg height="25" width="50">
+          <ellipse cx="25" cy="15" rx="5" ry="5"
+          style="fill:red;fill-opacity:0.8" />
+        </svg><br/>
+        <span> $100 - $150</span><br />
+ 
 
   </div>
+
+
 
     <script type="text/javascript" src="libraries/jQuery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="libraries/leaflet-0.7.3/leaflet.js"></script>

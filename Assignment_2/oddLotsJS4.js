@@ -55,8 +55,8 @@ lotStyle = function (feature){
         color = "#fee5d9";
     }
     if(value === '6'){
-        fillColor = "#A6D5FF";
-        color = '#A6D5FF';
+        fillColor = "#5AB1FF";
+        color = '#5AB1FF';
     }
     if(value === '7'){
         fillColor = "#40C9C9";
@@ -116,7 +116,7 @@ Choice = function addDataToMap(dataLayer, feature) {
 // log out parameters
 //$('.choice').change(function () {
     console.log('something');
-    var sql = 'SELECT * FROM bk_oddlots_copy';
+    var sql = 'SELECT * FROM oddlots_brooklyn_lotarea';
     console.log(feature);
     if (feature === 'lottype') {
     }

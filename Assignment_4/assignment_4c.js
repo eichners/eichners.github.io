@@ -1,5 +1,5 @@
 $(document).ready(function () {
-var map = L.map('map').setView([40.71,-73.93], 12);
+var map = L.map('map').setView([40.71,-73.93], 13);
 
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
 attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
@@ -15,7 +15,7 @@ addBufferData();
 
 function addBufferData() {
 //function addBufferedData() {
- $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT ST_Transform(ST_Buffer(the_geom_webmercator, 300), 4326) AS the_geom FROM bk_oddlots_copy &format=GeoJSON')
+ $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT ST_Transform(ST_Buffer(the_geom_webmercator, 300), 4326) AS the_geom FROM oddlots_brooklyn_lotarea &format=GeoJSON')
    .done(function (data) {
     console.log(data);
     var bufferData = data;
@@ -40,7 +40,7 @@ function addBufferData() {
 }
 
 function addGroupData() {
-  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT ST_Transform(ST_Convexhull(ST_Collect(the_geom_webmercator)), 4326) AS the_geom FROM bk_oddlots_copy GROUP BY schooldist &format=GeoJSON')
+  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT ST_Transform(ST_Convexhull(ST_Collect(the_geom_webmercator)), 4326) AS the_geom FROM oddlots_brooklyn_lotarea GROUP BY schooldist &format=GeoJSON')
   .done(function (data) {
     var groupData = data;
     console.log(data);
@@ -72,7 +72,7 @@ function addGroupData() {
 }
 
 function addStreetView() {
-  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM bk_oddlots_copy &format=GeoJSON')
+  $.getJSON('https://eichnersara.cartodb.com/api/v2/sql?q=SELECT * FROM oddlots_brooklyn_lotarea &format=GeoJSON')
   .done(function (data) {
     var lotData = data;
     console.log(data);
