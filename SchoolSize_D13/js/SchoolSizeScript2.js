@@ -6,15 +6,15 @@
 // - and different colors for growth or decline. 
 // - create slider to show change from 2006 - 2015
 
-var map = L.map('map').setView([40.689542, -73.969587], 14);
+var map = L.map('map').setView([40.689542, -73.969587], 15);
 
-var OpenMapSurfer_Grayscale = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roadsg/x={x}&y={y}&z={z}', {
+var CartoDB = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
      minZoom: 12,
     maxZoom: 19,
-    attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
+    attribution: 'Map Data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> Contributors, Map Tiles &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+  });
 
-map.addLayer(OpenMapSurfer_Grayscale);
+map.addLayer(CartoDB);
 // set data layer as global variable so we can use it in the layer control below
 var leaflet_geoJSON;
 
@@ -35,7 +35,7 @@ $.getJSON( "geojson/D13_polygon.geojson", function( data ) {
             "weight": 2,
             "color":"#1381ab",
             "fillColor": 'White',
-            "fillOpacity": 0.4
+            "fillOpacity": 0.6
 
         };
         return style;
