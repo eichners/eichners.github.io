@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>hispaniola</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <style>  
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 670px;
+    width: 100%;
+    padding: 5;
+    margin: 5;
+    position: relative;
+}
+#map2 {
+    height: 640px;
+    width: 100%;
+    padding: 5;
+    padding-top: 2px;
+    margin: 5;
+    position: relative;
+}
+    </style>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="map2"></div>
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+
+    <script>
+      function main() {
+        var map;
+        var map1
+        var url = 'https://calvingrey.carto.com/api/v2/viz/b8cd0ca6-900b-4ba9-9c06-bb50f10ce235/viz.json';
+
+        cartodb.createVis('map', url, {
+          search: false,
+          tiles_loader: true,
+          layer_selector: false,
+          cartodb_logo: false,
+          https: true
+        })
+        .done(function(vis, layers) {
+
+          // Set max zoom
+          vis.map.set({
+            minZoom: 8,
+            maxZoom: 21
+          });
+         map = vis.getNativeMap();
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+      }
+      
+      var url2 = 'https://calvingrey.carto.com/api/v2/viz/6a3e2c40-4905-11e6-95b0-0e3ff518bd15/viz.json';
+
+        cartodb.createVis('map2', url2, {
+          search: false,
+          tiles_loader: true,
+          layer_selector: false,
+          cartodb_logo: false,
+          https: true
+        })
+        .done(function(vis, layers) {
+
+          // Set max zoom
+          vis.map.set({
+            minZoom: 8,
+            maxZoom: 21
+          });
+          map2 = vis.getNativeMap();
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+
+      window.onload = main;
+    </script>
+  </body>
+</html>
