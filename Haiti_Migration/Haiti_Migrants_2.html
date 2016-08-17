@@ -151,16 +151,16 @@ body {
       <div id ="box">
           <h1>Dominicans of Haitian descent and Hatians: migration to Haiti</h1>
           <p3>One dot = 4 migrants</p3><br/><br/>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I created this map to visualize the number of people affected by the 2013 Dominican court ruling and subsequent Naturalization law. Because of this law Dominican Hatians and Hatian immigrants have lost their status as citizens or legal residents. People who have lived in the Dominican Republic for their whole lives, or for decades are now required to register to become nationals with documents many don't have. As a result many thousand people of Hatian descent have become stateless.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;I created this map to visualize the number of people affected by the 2013 Dominican court ruling and subsequent Naturalization law. Because of this law Dominican Hatians and Hatian immigrants have lost their status as citizens or legal residents. People who have lived in the Dominican Republic for their whole lives, or for decades are now required to register to become nationals with documents that many don't have. As a result thousands of people of Hatian descent have become stateless.</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;My goal was to use the processes covered in the advanced ArcGIS class to illustrate the movement of migrants from the Dominican Republic to Haiti. In addition to other information, I'd hoped to show where they came from and where they went but could not find such detailed data. Instead I tried to create a visualization showing the minimal data I did find interacting with the geography of Hispaniola.
        <br/><br/></p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;While there are four official border crossings between Haiti and the Dominican Republic, there are 141 unofficial crossing points. The International Organization for Migration, along with local NGO’s have monitored crossings at these four official sites and at 100 of the unofficial sites since June 2015.<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;Over the last year they recorded 128,993 people migrating to Haiti. 
         <br/>Of those, 23,493 were officially deported. 78,960 returned “spontaneously”, or on their own.
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;In the Dominican Republic 240,000 people of Hatian descent have registered under regularization program to stay for one or two more years, but ¼ of those have not received their cards. The total population in the DR is 10.4 million population in DR. <br/>
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;In the Dominican Republic 240,000 people of Hatian descent have registered under regularization program to stay for one or two more years, but ¼ of those have not yet received their cards. The total population in the DR is 10.4 million. <br/>
         The estimated population of Hatians and descendants of haitians in DR is 500,000 to more than 1,000,000<br/>&nbsp;&nbsp;&nbsp;&nbsp;
         Current conditions in Haiti are unstable to say the least. In 2016 there are still 60,000 Hatians displaced by the 2010 earthquake. As of August, 2016 there is no president, with an election scheduled for October 9.<br/>
-        Thousands of the migrants remain in makeshift camps near the border checkpoints.</p><br/><br/>
+        Thousands of migrants continue to live in makeshift camps near the border checkpoints.</p><br/><br/>
    
         <p>I learned about this story from the following sources:<br/>
           <a href="http://www.nytimes.com/2016/01/17/magazine/haitians-in-exile-in-the-dominican-republic.htmllink">• New York Times <i>In Exile,</i> Jonathan M. Katz. January 13, 2016</a> <br/>
@@ -178,7 +178,7 @@ body {
       <div id="box2">
         <ul>
          <p><b>Hillshade and Elevation rasters; observation point analysis, and skyline analysis.</b></p>
-         <p>All these were done to see if they would result in a useful geography based polygon for migrant visualization. </p>
+         <p>All these were done to see if they would result in a useful geography based polygons for this migrant visualization. </p>
         </ul>
       </div>
   </div>
@@ -188,11 +188,11 @@ body {
       <div id="box3">
         <ul>
           <p><b>Service Area Polygons</b></p>
-          <p>These were created with a road netowrk that I joined to the elevation data from the DEM. The facility points are the four border crossing points. Using 11 break points for 11 nesting polygons originating at the crossing points, I joined that with the monthly data of migrant movement. The dot per person map is generated wtih the polygon and migrant joined data. 
-          <br/> Generating the polygons with the Hatian road map resulted in a network full of holes because many Hation roads are not continuous. I used the  Data Management tool > Generalization > Eliminate Polygon Part tool to reduce the number of holes. </p>
+          <p>These were created with road netowrk data from Open Street Maps. I added elevation data to the road network from an elevation raster. The facility points are the four border crossings. 11 break points were used to create 11 nesting polygons originating at the crossing points; one for each month of data. The dot per person map is generated wtih the polygon and migrant data joined. 
+          <br/> Generating the polygons with the Hatian road map resulted in a network full of holes because so many Hatian roads are not continuous. I used the Data Management tool > Generalization > Eliminate Polygon Part tool to reduce the number of holes and simplify the polygons. </p>
           <br/> 
           <p><b>Points per migrant</b></p>
-          <p>To generate the points from data I used the generate random points tool. I ran the tool for each polygon and month of data separately, then created X,Y coordinates and CID numbers for each layer. Then joined those into one layer for Haiti, and one for the DR. The rest was done in Cartodb with the Torque tool. I wanted to animate the dots on the Dominican side as well to show them migrating over the border in a literal way, but Cartodb limits torque to one layer.</p>
+          <p>To generate the points I used the generate random points tool. I ran the tool for each polygon and month of data separately, then created X,Y coordinates and CID numbers for each layer. Then joined those into one layer for Haiti, and one for the DR. The rest was done in Cartodb with the Torque tool. I wanted to animate the dots on the Dominican side as well to show them migrating over the border in a literal way, but Cartodb limits torque to one layer.</p>
         </ul>
       </div>
   </div>
