@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Haitian Migration 2015-2016</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <style>  
+body {
+    padding: 0;
+    margin: 0;
+}
+ #map {
+    height: 1200px;
+    width: 100%;
+    padding: 5;
+    margin: 5;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+  }
+  #map2 {
+    height: 100%;
+    width: 100%;
+    padding: 5;
+    padding-top: 15;
+    margin: 5;
+    margin-top: 15;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    overflow: hidden;
+  }
+    #map3 {
+    height: 100%;
+    width: 100%;
+    padding: 5;
+    padding-top: 15;
+    margin: 5;
+    margin-top: 15;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  p3 {
+    color: #FFCC00;
+    }
+      
+  h1 { 
+      font-family: Verdana;
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: normal;
+      }
+
+     /* set styles to the div element with id= box */
+      #box{
+        position: absolute;
+        top: 20px;
+        right: 0px;
+        height: 1100px;
+        opacity: 0.6;
+        padding: 10px 15px 10px 20px;
+        width: 25%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 30px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 0px;
+        background-color: rgb(0,0,0);
+        color: white;
+      }
+    h1 { 
+      font-family: Verdana;
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: normal;
+      }
+      a:link {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      }
+
+    a:visited {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    }
+
+
+      /* set styles to the <h4> tag of the element with id= box
+      #box h4{
+        font-style: italic;
+      } */
+      /* set styles to the <p> tag of the element with id= box */
+      #box p{
+        text-align: left;
+        font-size: 10px;
+        color:white;
+      }
+      /* change legend's position and style */
+  
+    #box2{
+        position: absolute;
+        top: 20px;
+        right: 5px;
+        height: 120px;
+        opacity: 0.8;
+        padding: 10px 15px 10px 20px;
+        width: 25%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 30px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 4px;
+        background-color: white;
+        color: rgb(0,0,0);
+       } 
+    #box3{
+        position: absolute;
+        top: 20px;
+        right: 5px;
+        height: 100%;
+        opacity: 0.6;
+        padding: 10px 15px 10px 20px;
+        width: 25%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 30px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 4px;
+        background-color: white;
+        color: rgb(0,0,0);
+       } 
+    </style>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  </head>
+  <body>
+
+    <div id="map"></div>
+      <div id ="box">
+          <h1>Dominicans of Haitian descent and Hatians: migration to Haiti</h1>
+          <p3>One dot = 4 migrants</p3><br/><br/>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;I created this map to visualize the number of people affected by the 2013 Dominican court ruling and subsequent Naturalization law. Because of this law Dominican Hatians and Hatian immigrants have lost their status as citizens or legal residents. People who have lived in the Dominican Republic for their whole lives, or for decades are now required to register to become nationals with documents many don't have. As a result many thousand people of Hatian descent have become stateless.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;My goal was to use the processes covered in the advanced ArcGIS class to illustrate the movement of migrants from the Dominican Republic to Haiti. In addition to other information, I'd hoped to show where they came from and where they went but could not find such detailed data. Instead I tried to create a visualization showing the minimal data I did find interacting with the geography of Hispaniola.
+       <br/><br/></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;While there are four official border crossings between Haiti and the Dominican Republic, there are 141 unofficial crossing points. The International Organization for Migration, along with local NGO’s have monitored crossings at these four official sites and at 100 of the unofficial sites since June 2015.<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;Over the last year they recorded 128,993 people migrating to Haiti. 
+        <br/>Of those, 23,493 were officially deported. 78,960 returned “spontaneously”, or on their own.
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;In the Dominican Republic 240,000 people of Hatian descent have registered under regularization program to stay for one or two more years, but ¼ of those have not received their cards. The total population in the DR is 10.4 million population in DR. <br/>
+        The estimated population of Hatians and descendants of haitians in DR is 500,000 to more than 1,000,000<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+        Current conditions in Haiti are unstable to say the least. In 2016 there are still 60,000 Hatians displaced by the 2010 earthquake. As of August, 2016 there is no president, with an election scheduled for October 9.<br/>
+        Thousands of the migrants remain in makeshift camps near the border checkpoints.</p><br/><br/>
+   
+        <p>I learned about this story from the following sources:<br/>
+          <a href="http://www.nytimes.com/2016/01/17/magazine/haitians-in-exile-in-the-dominican-republic.htmllink">• New York Times <i>In Exile,</i> Jonathan M. Katz. January 13, 2016</a> <br/>
+          <a href="https://www.hrw.org/report/2015/07/01/we-are-dominican/arbitrary-deprivation-nationality-dominican-republic">• Human rights watch </a> <br/>
+          <a href="http://www.cnn.com/2016/04/12/world/dominican-republic-haiti-immigration/">• Faces of a Divided Nation, CNN, April, 2016 </a> <br/>
+          <a href="http://reliefweb.int/report/haiti/iom-haiti-border-monitoring-sitrep-28-july-2016">• International Organization for Migration </a> <br/> <br/>
+          Below this map are some examples showing the processes used to create the dot per migrant map</p>
+
+    </div>
+    
+    <!-- Create a custom legend -->
+
+  <div id="map2"><img src="Examples/Skyline.jpg" alt="example 1" style="width:100%;height:900px;">
+     
+      <div id="box2">
+        <ul>
+         <p><b>Hillshade and Elevation rasters; observation point analysis, and skyline analysis.</b></p>
+         <p>All these were done to see if they would result in a useful geography based polygon for migrant visualization. </p>
+        </ul>
+      </div>
+  </div>
+
+  <div id="map3"><img src="Examples/ServiceArea.jpg" alt="example 1" style="width:100%;height:900px;">
+
+      <div id="box3">
+        <ul>
+          <p><b>Service Area Polygons</b></p>
+          <p>These were created with a road netowrk that I joined to the elevation data from the DEM. The facility points are the four border crossing points. Using 11 break points for 11 nesting polygons originating at the crossing points, I joined that with the monthly data of migrant movement. The dot per person map is generated wtih the polygon and migrant joined data. 
+          <br/> Generating the polygons with the Hatian road map resulted in a network full of holes because many Hation roads are not continuous. I used the  Data Management tool > Generalization > Eliminate Polygon Part tool to reduce the number of holes. </p>
+          <br/> 
+          <p><b>Points per migrant</b></p>
+          <p>To generate the points from data I used the generate random points tool. I ran the tool for each polygon and month of data separately, then created X,Y coordinates and CID numbers for each layer. Then joined those into one layer for Haiti, and one for the DR. The rest was done in Cartodb with the Torque tool. I wanted to animate the dots on the Dominican side as well to show them migrating over the border in a literal way, but Cartodb limits torque to one layer.</p>
+        </ul>
+      </div>
+  </div>
+
+
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+
+    <script>
+      function main() {
+        var map;
+        var url = 'https://eichner.carto.com/api/v2/viz/03358d88-6037-11e6-835a-0ee66e2c9693/viz.json';
+
+        cartodb.createVis('map', url, {
+          search: false,
+          tiles_loader: true,
+          layer_selector: false,
+          cartodb_logo: false,
+          https: true
+        })
+        .done(function(vis, layers) {
+
+          // Set max zoom
+          vis.map.set({
+            minZoom: 8,
+            maxZoom: 21
+          });
+         map = vis.getNativeMap();
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+      }
+      
+   
+
+      window.onload = main;
+    </script>
+  </body>
+</html>
