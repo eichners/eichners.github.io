@@ -5,7 +5,7 @@ html, body {
 }
 
 div {
-  width: 420px;
+  width: 520px;
   margin: 30px;
 }
 
@@ -34,7 +34,7 @@ li a {
   text-decoration: none;
   color: #000;
   display: block;
-  width: 420px;
+  width: 520px;
  
   -webkit-transition: font-size 0.4s ease, background-color 0.4s ease;
   -moz-transition: font-size 0.4s ease, background-color 0.4s ease;
