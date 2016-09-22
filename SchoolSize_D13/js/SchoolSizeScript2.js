@@ -6,11 +6,15 @@
 // - and different colors for growth or decline. 
 // - create slider to show change from 2006 - 2015
 
-var map = L.map('map').setView([40.689542, -73.969587], 15);
+var map = L.map('map');
+    map.fitBounds([
+    [40.708798, -74.000173],
+    [40.669725, -73.943138]
+]);
 
 var CartoDB = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-     minZoom: 12,
-    maxZoom: 19,
+     minZoom: 11,
+    maxZoom: 20,
     attribution: 'Map Data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> Contributors, Map Tiles &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
   });
 
