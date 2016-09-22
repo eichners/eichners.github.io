@@ -172,6 +172,7 @@ legend.onAdd = function (map) {
     // this is an html legend instead of leaflet generated through functions
     // circles for legend are svg elements
         div.innerHTML += 
+        '<p><b>Click on building footprint <br/>for school information</b><br />' +
             '<p><b>District 13, Brooklyn</b><br />' +
             '<svg class="left" width="22" height="20"><rect x="5" y="8" height ="12" width ="14" class="legendSvg1"/></svg><span> Charter School</span><br />' +
             '<svg class="left" width="22" height="15"><rect x="5" y="3" height ="12" width ="14" class="legendSvg2"/></svg><span> Public School</span><br /></p>' +
