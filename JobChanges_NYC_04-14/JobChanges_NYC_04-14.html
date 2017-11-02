@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NYC Subway Service Area Analysis</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <style> html, body, #map { height:100%; padding:0; margin:0 } </style>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+    
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+
+    <script>
+      function main() {
+        var url = 'https://eichner.carto.com/api/v2/viz/76c306a0-5a6e-11e6-a2fc-0e05a8b3e3d7/viz.json';
+
+
+        cartodb.createVis('map', url, {
+          search: false,
+          tiles_loader: true,
+          layer_selector: true,
+          cartodb_logo: false,
+          https: false
+        })
+        .done(function(vis, layers) {
+
+          // Set max zoom
+          //vis.map.set({
+           // minZoom: 15
+          //});
+
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+      }
+ 
+      window.onload = main;
+    </script>
+  </body>
+</html>

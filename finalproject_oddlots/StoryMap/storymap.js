@@ -1,3 +1,6 @@
+// This jquery plugin comes from https://github.com/atlefren/storymap
+// licensed under the MIT license
+
     (function ($) {
     'use strict';
 
@@ -11,7 +14,7 @@
                 // create a map in the "map" div, set the view to a given place and zoom
                 var map = L.map('map').setView([65, 18], 5);
 
-                // add an OpenStreetMap tile layer
+                // add an OpenStreetMap tile layer (I did not use this map, it was called in the cartodb framework from Mapbox Studio)
                 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 }).addTo(map);
@@ -100,10 +103,8 @@
             watchHighlight(element, searchfor, top);
             
 
-            // changes made to plug in file: changed create map function so that plugin will work with the cartodb createVis
-            // because it needs a leaflet map, needed to create map from cartodb before plugin functions run. 
-            // moved variables to outside of the .done function, and functions that recenter the map to inside
-            // the .done function so that data is loaded before function is called
+            // changes made to plug in file: changed create map function so that plugin will work with the cartodb createVis because it needs a leaflet map, needed to create map from cartodb before plugin functions run. 
+            // moved variables to outside of the .done function, and functions that recenter the map to inside the .done function so that data is loaded before function is called
 
             var initPoint;
             var initZoom;
