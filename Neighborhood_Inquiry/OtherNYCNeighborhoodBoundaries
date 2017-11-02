@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Other NYC Boundaries Map</title>
+
+           <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+    <style>
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+
+    #menu {
+        position: absolute;
+        top: 5px;
+        left: 60px;
+        width: 200px;
+        height: 40px;
+        background: transparent;
+        z-index: 10;
+    }
+
+    #menu a {
+        margin: 15px 10px 0 0;
+        float: left;
+        vertical-align: baseline;
+        width: 240px;
+        padding: 14px;
+        text-align: left;
+        font: bold 16px "Verdana", Arial;
+        line-height: normal;
+        color: #FFF;
+        border-radius: 3px;
+        background: #777777;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #menu a:active{
+    	background: #f970e2;
+        color: #fff;
+    }
+    #menu a:hover {
+    	background: #FF9900;
+        color: #fff;
+    }
+        #box p{
+        text-align: left;
+        font-size: 15px;
+        color:white;
+      }
+      #box{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        height: 700px;
+        opacity: 0.8;
+        padding: 0px 5px 5px 11px;
+        width: 17%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 4px;
+        background-color: #0064ce;
+        color: white;
+      }
+       h1 { 
+      font-family: Verdana;
+      font-size: 26px;
+      line-height: 1.5;
+      font-weight: heavy;
+      }
+    .cartodb-layer-selector-box,
+    .cartodb-searchbox,
+    .cartodb-share {
+        display: none !important;
+    }
+    </style>
+
+
+<script>
+    var layer;
+    function init() {
+        var url = 'https://eichnersara.carto.com/api/v2/viz/906fd85b-9cb1-4af8-87ed-fad4c7ba53ee/viz.json';
+        var visualizacion = cartodb.createVis("map", url)
+            .done(function(vis, layers) {
+                layer = layers[1];
+            });
+    }
+
+    function showLayer(layerToShow) {
+
+        //turn off all layers
+        layer.getSubLayers().forEach(function(i) {
+            i.hide()
+        });
+
+        switch (layerToShow.id) {
+            case "All":
+                layer.getSubLayer(0).show();
+                layer.getSubLayer(1).show(); // PediaCity Polygons
+                layer.getSubLayer(3).show(); // NTA polygons
+                layer.getSubLayer(4).show(); // Zillow polygons
+                layer.getSubLayer(5).show(); // Co-op School
+                ayer.getSubLayer(6).show(); // boros
+                break;
+            case "NTAs":
+                layer.getSubLayer(3).show(); //
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "Zillow":
+                layer.getSubLayer(4).show(); //
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "PediaCity":
+                layer.getSubLayer(2).show(); // 
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "Bedford Stuyvesant":
+         		layer.getSubLayer(1).show(); // Bed Stuy
+         		layer.getSubLayer(2).show(); // pediacities polygons (mapping technology group)
+               
+                layer.getSubLayer(0).show(); // boros
+               break;
+        }
+
+        return true;
+    }
+    </script>
+
+
+
+
+    </head>
+
+<body onload="init()">
+    <div id='map'></div>
+    <div id='menu'>
+    	<a href="#All" id="All" class="button All;" onclick="showLayer(this);" style="background: #2bbf01" >Some other New York City Boundaries<p style=" font-weight: normal;" style="font-size: 50%;">These are municipal boundaries that are determined by data from many sources and shaped to make sure all New Yorkers have fair access to New York services like the Fire Department and Police Department. How many people live in each area is kept track of by the Census.</p></a>
+      <!--  <a href="#All" id="All" class="button All" onclick="showLayer(this);">All</a>-->
+        <a href="#NTAs" id="NTAs" class="button NTAs" onclick="showLayer(this);">Police Precincts</a>
+        <a href="#Zillow" id="Zillow" class="button Zillow" onclick="showLayer(this);">Fire Companies</a>
+        <a href="#PediaCity" id="PediaCity" class="button PediaCity" onclick="showLayer(this);">Community Districts</a> 
+       <a href="#Bedford Stuyvesant" id="Bedford Stuyvesant" class="button Bedford Stuyvesant" onclick="showLayer(this)">Census Tracts</a>
+    </div>
+</body>
+
+     <div id ="box">
+          <h1>First Grade Neighborhood Study</h1>
+          <br/>
+<div id='overlay'>
+	<p> How Many neighborhoods are there in New York City?</br></br>
+		It depends on who is counting, and how neighborhoods are defined. </br>
+		• Pediacities (a technology and data company) counts <strong><style="font-size: 200%;">264</style></strong>. </br>
+		• New York City has <strong><style="font-size: 200%;">195 </style></strong>Neighborhood Tabulation Areas. These are used for census data. </br>
+		• The real estate industry company Zillow counts <strong><style="font-size: 200%;">286 </style></strong>neighborhoods.</br>
+		• Wikipedia acknowledges that there are many ways to consider neighborhoods and does not give us one count. </br>
+
+
+</p>
+</div>
+</div>
+</html>
+</body>
+

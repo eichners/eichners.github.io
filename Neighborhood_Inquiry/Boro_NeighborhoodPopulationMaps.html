@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>NYC Population Map</title>
+
+           <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+    <style>
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+
+    #menu {
+        position: absolute;
+        top: 5px;
+        left: 60px;
+        width: 200px;
+        height: 40px;
+        background: transparent;
+        z-index: 10;
+    }
+
+    #menu a {
+        margin: 15px 10px 0 0;
+        float: left;
+        vertical-align: baseline;
+        width: 240px;
+        padding: 15px;
+        text-align: center;
+        font: bold 16px "Verdana", Arial;
+        line-height: normal;
+        color: #FFF;
+        border-radius: 4px;
+        background: #777777;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #menu a:active{
+    	background: #f970e2;
+        color: #fff;
+    }
+    #menu a:hover {
+    	background: #fc11c5;
+        color: #fff;
+    }
+
+    .cartodb-layer-selector-box,
+    .cartodb-searchbox,
+    .cartodb-share {
+        display: none !important;
+    }
+    </style>
+
+
+<script>
+    var layer;
+    function init() {
+        var url = 'https://eichnersara.carto.com/api/v2/viz/abfe20b5-f1e7-4e74-b20e-0d3389e1eb4e/viz.json';
+        var visualizacion = cartodb.createVis("map", url)
+            .done(function(vis, layers) {
+                layer = layers[1];
+            });
+    }
+
+    function showLayer(layerToShow) {
+
+        //turn off all layers
+        layer.getSubLayers().forEach(function(i) {
+            i.hide()
+        });
+
+        switch (layerToShow.id) {
+            case "Neighborhoods":
+                layer.getSubLayer(0).show();
+                break;
+            case "Boroughs":
+                layer.getSubLayer(1).show();
+                break;
+   //         case "gdp_2015":
+   //             layer.getSubLayer(2).show();
+   //             break;
+        }
+
+        return true;
+    }
+    </script>
+
+
+
+
+    </head>
+
+<body onload="init()">
+    <div id='map'></div>
+    <div id='menu'>
+        <a href="#Boroughs" id="Boroughs" class="button Boroughs" onclick="showLayer(this);">Borough Populations</a>
+        <a href="#Neighborhoods" id="Neighborhoods" class="button Neighborhoods" onclick="showLayer(this);">Neighborhood Populations</a>
+       <!-- <a href="#gdp_2015" id="gdp_2015" class="button gdp_2015" onclick="showLayer(this)">2015</a>-->
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+<!-- 
+
+    <body>
+      <div id="map"></div>
+      <aside class="layers">
+      <h2>Layers</h2>
+      <ul>
+        <li class="layer">
+            <input type="checkbox" id="boros" name="layer">
+            <label for="boros">NYC Boroughs</label>
+        </li>
+        <li class="layer">
+            <input type="checkbox" id="hoods" name="layer">
+            <label for="hoods">Neighborhoods</label>
+        </li>
+        <li class="layer">
+            <input type="checkbox" id="hoodPops" name="layer">
+            <label for="hoodPops">Neighborhood Populations</label>
+        </li>
+      </ul>
+      </aside>
+      <script src="https://eichnersara.carto.com/api/v2/viz/abfe20b5-f1e7-4e74-b20e-0d3389e1eb4e/viz.json"></script>
+      <script>
+$( document ).ready(function() {
+
+        //Create the leaflet map
+        var map = L.map('map', {
+            zoomControl: true,
+            center: [40.730610,-73.935242],
+            zoom: 12
+        });
+
+
+        var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+        }).addTo(map);
+
+        // Layers definition
+        var layers = {
+          'boros': {
+            sql: 'SELECT * FROM nucleos_pobl_btn100',
+            cartocss: '#layer{polygon-fill: #D6301D;polygon-opacity: 0.7;}'
+          },
+          'rios': {
+            sql: 'SELECT * FROM rios_btn25',
+            cartocss: '#rios_btn25{line-color: #2E5387;line-width: 2;line-opacity: 0.7;}'
+          },
+          'hoodPops': {
+            sql: 'SELECT * FROM ntas_poppersqmile_nyc_labels 1',
+            cartocss: '#ntas_poppersqmile_nyc_labels 1{marker-fill-opacity: 0.9; marker-line-color: #FFF; marker-line-width: 1.5; marker-width: 10; marker-fill: #3B007F; }'
+          }
+        }
+
+        // Empty layer
+        cartodb.createLayer(map,{
+            user_name: 'ignspaintest',
+            type: 'cartodb',
+            sublayers: []
+          })
+          .addTo(map)
+          .done(function(layer){
+            // When the layers inputs change fire this
+            $("input[name='layer']").change(function(){
+
+              // Clear the sublayers
+              layer.getSubLayers().forEach(function(sublayer){sublayer.remove()});
+
+              // For every check activated, add a sublayer
+              $.each($("input[name='layer']:checked"), function(){
+                  layer.createSubLayer(layers[$(this).attr("id")]);
+              });
+            });
+        });
+      });
+      </script>
+    </body>
+</html>
+
+
+
+
+  <body>
+    <div id="map"></div>
+    <div id="layer_selector" class="cartodb-infobox">
+      <ul>
+        <li id="abc" class="selected">Borough Population</li>
+        <li id="efg"class="selected">Neighborhood boundaries</li>
+        <li id="hij"class="selected">Neighborhood populations</li>
+        <li id="klm"class="selected"> The Co-op School </li>
+        <li id="nop"class="selected">Neighborhood populations</li>
+      </ul>
+    </div>
+
+
+        cartodb.createLayer(map, 'https://eichnersara.carto.com/api/v2/viz/abfe20b5-f1e7-4e74-b20e-0d3389e1eb4e/viz.json')
+

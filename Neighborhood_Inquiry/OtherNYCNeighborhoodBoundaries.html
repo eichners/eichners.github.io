@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Other NYC Boundaries Map</title>
+
+           <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+    <style>
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+
+    #menu {
+        position: absolute;
+        top: 5px;
+        left: 60px;
+        width: 200px;
+        height: 40px;
+        background: transparent;
+        z-index: 10;
+    }
+
+    #menu a {
+        margin: 15px 10px 0 0;
+        float: left;
+        vertical-align: baseline;
+        width: 240px;
+        padding: 14px;
+        text-align: left;
+        font: bold 16px "Verdana", Arial;
+        line-height: normal;
+        color: #FFF;
+        border-radius: 3px;
+        background: #777777;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #menu a:active{
+    	background: #f970e2;
+        color: #fff;
+    }
+    #menu a:hover {
+    	background: #ff38d0;
+        color: #fff;
+    }
+        #box p{
+        text-align: left;
+        font-size: 15px;
+        color:white;
+      }
+      #box{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        height: 700px;
+        opacity: 0.8;
+        padding: 0px 5px 5px 11px;
+        width: 17%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 4px;
+        background-color: #0064ce;
+        color: white;
+      }
+       h1 { 
+      font-family: Verdana;
+      font-size: 26px;
+      line-height: 1.5;
+      font-weight: heavy;
+      }
+    .cartodb-layer-selector-box,
+    .cartodb-searchbox,
+    .cartodb-share {
+        display: none !important;
+    }
+    </style>
+
+
+<script>
+    var layer;
+    function init() {
+        var url = 'https://eichnersara.carto.com/api/v2/viz/6c3ad0a5-4a16-493d-ab5e-599fc54f9210/viz.json';
+        var visualizacion = cartodb.createVis("map", url)
+            .done(function(vis, layers) {
+                layer = layers[1];
+            });
+    }
+
+    function showLayer(layerToShow) {
+
+        //turn off all layers
+        layer.getSubLayers().forEach(function(i) {
+            i.hide()
+        });
+
+        switch (layerToShow.id) {
+            case "All":
+                layer.getSubLayer(0).show(); // Boros
+                layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(2).show(); // census tracts
+                layer.getSubLayer(3).show(); // Fire
+                layer.getSubLayer(4).show(); // Police
+                layer.getSubLayer(5).show(); // Community Districts
+                layer.getSubLayer(6).show(); // boros
+                layer.getSubLayer(7).show(); // School 
+                break;
+            case "School Districts":
+                layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(7).show(); // School
+                layer.getSubLayer(6).show(); // boros
+                layer.getSubLayer(0).show(); // school districts
+               break;
+            case "Community Districts":
+                layer.getSubLayer(7).show(); // School 
+                layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(5).show(); // Community Districts
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "Police Precincts":
+                layer.getSubLayer(7).show(); // School 
+                layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(4).show(); // Police Precincts
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "Fire Companies":
+                layer.getSubLayer(7).show(); // School 
+                layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(3).show(); // Fire Companies
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "Census Tracts":
+                layer.getSubLayer(7).show(); // School 
+         		layer.getSubLayer(1).show(); // Bed Stuy
+         		layer.getSubLayer(2).show(); // census tracts
+                layer.getSubLayer(0).show(); // boros
+               break;
+            case "Bed Stuy":
+                layer.getSubLayer(7).show(); // School 
+                layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(0).show(); // boros
+               break;
+
+
+               
+        }
+
+        return true;
+    }
+    </script>
+
+
+
+
+    </head>
+
+<body onload="init()">
+    <div id='map'></div>
+    <div id='menu'>
+    	<a href="#All" id="All" class="button All;" onclick="showLayer(this);" style="background: #3b7fc6" >Other New York City Boundaries<p style=" font-weight: normal;" style="font-size: 50%;">These are municipal boundaries that are determined by data from many sources and shaped to make sure all New Yorkers have fair access to City  services like the Fire and Police Department. The US Government Census counts how many people live in not only New York, but the whole country. There are many more boundaries I could put on this map like voting districts, health areas, and zip codes, but that would get too crazy.</p> <p style=" font-weight: normal;" style="font-size: 50%;">If you want to know how many of each of these areas there are in New York City, the number is next to the name on each button below.</p></a>
+
+        <a href="#School Districts" id="School Districts" class="button School Districts" onclick="showLayer(this);">School Districts (33)</a> 
+
+      <a href="#Community Districts" id="Community Districts" class="button Community Districts" onclick="showLayer(this);">Community Districts (71)</a>
+    
+        <a href="#Police Precincts" id="Police Precincts" class="button Police Precincts" onclick="showLayer(this);">Police Precincts (77)</a>
+      
+        <a href="#Fire Companies" id="Fire Companies" class="button Fire Companies" onclick="showLayer(this);">Fire Companies (348)</a>
+
+       <a href="#Census Tracts" id="Census Tracts" class="button Census Tracts" onclick="showLayer(this)">Census Tracts (2,166)</a>
+
+        <a href="#Bed Stuy" id="Bed Stuy" class="button Bed Stuy" onclick="showLayer(this)">Bedford Stuyvesant</a>
+    </div>
+</body>
+
+
+
+</div>
+</html>
+</body>
+

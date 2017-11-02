@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Layer Selector: Co-op School Neighborhood Study </title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <style>  
+body {
+    padding: 0;
+    margin: 0;
+}
+ #map {
+    height: 1200px;
+    width: 100%;
+    padding: 5;
+    margin: 5;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+  }
+  #map2 {
+    height: 100%;
+    width: 100%;
+    padding: 5;
+    padding-top: 15;
+    margin: 5;
+    margin-top: 15;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    overflow: hidden;
+    background: rgb(166,177,137);
+  }
+    #map3 {
+    height: 100%;
+    width: 100%;
+    padding: 5;
+    padding-top: 15;
+    margin: 5;
+    margin-top: 15;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  p3 {
+    color: #FFCC00;
+    }
+      
+  h1 { 
+      font-family: Verdana;
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: normal;
+      }
+
+
+/* Layer selector code from Carto*/
+      #layer_selector {
+        position: absolute;
+        top: 20px;
+        right: 60px;
+        padding: 0;
+      }
+     #layer_selector ul {
+        padding: 0; margin: 0;
+        list-style-type: none;
+      }
+
+      #layer_selector li {
+        border-bottom: 1px solid #999;
+        padding: 15px 30px;
+        font-family: "Helvetica", Arial;
+        font-size: 13px;
+        color: #444;
+        cursor: auto;
+      }
+      #layer_selector li:hover {
+        background-color: #F0F0F0;
+        cursor: pointer;
+      }
+      #layer_selector li.selected {
+        background-color: #EEE;
+      }
+
+/* set styles to the div element with id= box */
+  /*    #layer_selector {
+        position: absolute;
+        top: 20px;
+        left: 60px;
+        padding: 0;
+        border-radius: 5px;
+      }
+ 
+      #layer_selector ul {
+        padding: 0; 
+        margin: 0;
+        list-style-type: none;
+      }
+ 
+      #layer_selector li {
+        border-bottom: 1px solid #999;
+        padding: 14px 20px;
+        font-family: Verdana;
+        font-size: 13px;
+        color: #333333;
+        cursor: auto;
+      }
+ 
+      #layer_selector li:hover {
+        background-color: #F0F0F0;
+        cursor: pointer;
+      }
+ 
+      #layer_selector li.selected {
+        background-color: #EEE;
+      }*/
+      #box{
+        position: absolute;
+        top: 20px;
+        right: 0px;
+        height: 300px;
+        opacity: 0.6;
+        padding: 10px 25px 10px 20px;
+        width: 20%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 30px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 0px;
+        background-color: rgb(0,0,0);
+        color: white;
+      }
+    h1 { 
+      font-family: Verdana;
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: normal;
+      }
+      a:link {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      }
+
+    a:visited {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    }
+
+
+      /* set styles to the <h4> tag of the element with id= box
+      #box h4{
+        font-style: italic;
+      } */
+      /* set styles to the <p> tag of the element with id= box */
+      #box p{
+        text-align: left;
+        font-size: 10px;
+        color:white;
+      }
+      /* change legend's position and style */
+  
+    #box2{
+        position: absolute;
+        top: 50px;
+        right: 5px;
+        height: 120px;
+        opacity: 0.8;
+        padding: 10px 15px 10px 20px;
+        width: 25%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 30px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 4px;
+        background-color: white;
+        color: rgb(0,0,0);
+       } 
+    #box3{
+        position: absolute;
+        top: 20px;
+        right: 5px;
+        height: 100%;
+        opacity: 0.6;
+        padding: 10px 15px 10px 20px;
+        width: 25%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 30px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 4px;
+        background-color: white;
+        color: rgb(0,0,0);
+       } 
+    </style>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  </head>
+  <body>
+
+    <div id="map"></div>
+    <div id="layer_selector" class="cartodb-infobox">
+      <ul>
+         <li id="abc" class="selected">Neighborhood boundary Variations</li>
+        <li id="efg">Neighborhood Population</li>
+        <li id="hij">Borough Population</li>
+      </ul>
+    </div>
+      <div id ="box">
+          <h1>First Grade Neighborhood Study: Questions</h1>
+          <br/>
+
+<p>How many people live in New York City?
+In 2015, New York City and the US Census Bureau estimate there are: 8,550,405 people in New York.
+
+That is the largest population of any city in the United States, more than twice the size of the second largest city, Los Angeles.
+
+About 1 in every 38 people living in the United States lives in New York City.
+
+New York has the highest population density of any major city in the United States, with over 27,000 people per square mile.
+
+Over 3 million New Yorkers were born in a foreign country; over one-quarter arrived in 2000 or later.
+
+Nearly 2 million New Yorkers are children (under the age of 18).
+
+There are nearly 400,000 more women than men in New York.
+
+A baby is born in New York City every 4.4 minutes.
+
+The borough of Brooklyn by itself would be the 4th largest city in the United States; 
+Queens would also rank 4th nationally.
+
+Over 200 languages are spoken in New York City.
+
+Half of all New Yorkers speak a language other than English at home.
+
+New York City has the largest Chinese population of any city outside of Asia.
+
+More persons of West Indian ancestry live in New York City than any city outside of the West Indies.
+
+New York has the largest Puerto Rican population of any city in the world.
+
+More Dominicans live in New York than any other city in the world, other than Santo Domingo, the largest city in the Dominican Republic.
+</p><br/>
+   
+        <p>Data Sources:<br/>
+   
+
+    </div>
+    
+    <!-- Create a custom legend -->
+
+  <div id="map2"><img src="Examples/Skyline2.jpg" alt="example 1" >
+     
+      <div id="box2">
+        <ul>
+         <p><b>Hillshade and Elevation rasters; observation point analysis, and skyline analysis.</b></p>
+         <p>All these were done to see if they would result in a useful geography based polygons for this migrant visualization. </p>
+        </ul>
+      </div>
+  </div>
+
+  <div id="map3"><img src="Examples/ServiceArea.jpg" alt="example 1" s>
+
+      <div id="box3">
+        <ul>
+          <p><b>Data?</b></p>
+</p>
+        </ul>
+      </div>
+  </div>
+
+
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+
+ <script>
+       // create layer selector
+      function createSelector(layer) {
+        var sql = new cartodb.SQL({ user: 'documentation' });
+        var $options = $('#layer_selector li');
+        $options.click(function(e) {
+          // get the area of the selected layer
+          var $li = $(e.target);
+           var layer = $li.attr('id');
+          if(selectedLayer != layer ){
+            // definitely more elegant ways to do this, but went for
+            // ease of understanding
+            if (layer == 'abc'){
+              layers.getSubLayer(0).show(); // countries
+              layers.getSubLayer(1).show(); // cables
+              layers.getSubLayer(2).show(); // populated places
+            }
+            else if (layer == 'efg') {
+              layers.getSubLayer(0).show();
+              layers.getSubLayer(1).hide();
+              layers.getSubLayer(2).show();
+            }
+            else {
+              layers.getSubLayer(0).show();
+              layers.getSubLayer(1).show();
+              layers.getSubLayer(2).hide();
+            }
+          }
+          // change the query in the layer to update the map
+          //layer.setSQL(query);
+        });
+      }
+    var layerN = {};
+      function main() {
+        var map = L.map('map', { 
+         center: [40.730610,  -73.935242],
+          zoom: 10,
+          zoomControl: true
+        });
+        // get the currently selected style
+        selectedStyle = $('li.selected').attr('id');
+ 
+        cartodb.createLayer(map, 'https://eichnersara.carto.com/api/v2/viz/abfe20b5-f1e7-4e74-b20e-0d3389e1eb4e/viz.json')
+        .addTo(map)
+        .done(function(layers) {
+          createSelector(layers);
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+      }
+      window.onload = main;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>NYC Neighborhood Boundary Map</title>
+
+           <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+    <style>
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+
+    #menu {
+        position: absolute;
+        top: 5px;
+        left: 60px;
+        width: 200px;
+        height: 40px;
+        background: transparent;
+        z-index: 10;
+    }
+
+    #menu a {
+        margin: 15px 10px 0 0;
+        float: left;
+        vertical-align: baseline;
+        width: 240px;
+        padding: 14px;
+        text-align: left;
+        font: bold 16px "Verdana", Arial;
+        line-height: normal;
+        color: #FFF;
+        border-radius: 3px;
+        background: #777777;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #menu a:active{
+    	background: #f970e2;
+        color: #fff;
+    }
+    #menu a:hover {
+    	background: #FF9900;
+        color: #fff;
+    }
+        #box p{
+        text-align: left;
+        font-size: 15px;
+        color:white;
+      }
+      #box{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        height: 700px;
+        opacity: 0.8;
+        padding: 0px 5px 5px 11px;
+        width: 17%;
+        margin-left: 15px;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-family: Verdana;
+        font-size: 11px;
+        line-height: 1.75;
+        border-radius: 4px;
+        background-color: #0064ce;
+        color: white;
+      }
+       h1 { 
+      font-family: Verdana;
+      font-size: 26px;
+      line-height: 1.5;
+      font-weight: heavy;
+      }
+    .cartodb-layer-selector-box,
+    .cartodb-searchbox,
+    .cartodb-share {
+        display: none !important;
+    }
+    </style>
+
+
+<script>
+    var layer;
+    function init() {
+        var url = 'https://eichnersara.carto.com/api/v2/viz/906fd85b-9cb1-4af8-87ed-fad4c7ba53ee/viz.json';
+        var visualizacion = cartodb.createVis("map", url)
+            .done(function(vis, layers) {
+                layer = layers[1];
+            });
+    }
+
+    function showLayer(layerToShow) {
+
+        //turn off all layers
+        layer.getSubLayers().forEach(function(i) {
+            i.hide()
+        });
+
+        switch (layerToShow.id) {
+            case "All":
+                layer.getSubLayer(0).show();
+                layer.getSubLayer(1).show(); // PediaCity Polygons
+                layer.getSubLayer(3).show(); // NTA polygons
+                layer.getSubLayer(4).show(); // Zillow polygons
+                layer.getSubLayer(5).show(); // Co-op School
+                break;
+            case "NTAs":
+            layer.getSubLayer(5).show(); // Co-op School
+            	layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(3).show(); //
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "Zillow":
+            layer.getSubLayer(5).show(); // Co-op School
+            	layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(4).show(); //
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "PediaCity":
+            layer.getSubLayer(5).show(); // Co-op School
+            	layer.getSubLayer(1).show(); // Bed Stuy
+                layer.getSubLayer(2).show(); // 
+                layer.getSubLayer(0).show(); // boros
+                break;
+            case "Bedford Stuyvesant":
+            layer.getSubLayer(5).show(); // Co-op School
+         		layer.getSubLayer(1).show(); // Bed Stuy
+         		layer.getSubLayer(2).show(); // pediacities polygons (mapping technology group)
+               
+                layer.getSubLayer(0).show(); // boros
+               break;
+        }
+
+        return true;
+    }
+    </script>
+
+
+
+
+    </head>
+
+<body onload="init()">
+    <div id='map'></div>
+    <div id='menu'>
+    	<a href="#All" id="All" class="button All;" onclick="showLayer(this);" style="background: #2bbf01" >How many people live in our neighborhood?<p style=" font-weight: normal;" style="font-size: 50%;">To answer that question we first need to decide where the boundaries of our neighborhood are. Here are some of the ways Neighborhood Boundaries are drawn in New York City.</p> 
+      <!--  <a href="#All" id="All" class="button All" onclick="showLayer(this);">All</a>-->
+        <a href="#NTAs" id="NTAs" class="button NTAs" onclick="showLayer(this);">1. New York City Neighborhood Boundaries (Population Counts)</a>
+        <a href="#Zillow" id="Zillow" class="button Zillow" onclick="showLayer(this);">2. Real Estate Industry Neighborhoods</a>
+        <a href="#PediaCity" id="PediaCity" class="button PediaCity" onclick="showLayer(this);">3. Pediacities Neighborhoods </a> 
+       <a href="#Bedford Stuyvesant" id="Bedford Stuyvesant" class="button Bedford Stuyvesant" onclick="showLayer(this)">Bedford Stuyvesant</a>
+    </div>
+</body>
+
+     <div id ="box">
+          <h1>First Grade Neighborhood Study</h1>
+          <br/>
+<div id='overlay'>
+	<p> How Many neighborhoods are there in New York City?</br></br>
+		It depends on who is counting, and how neighborhoods are defined. </br>
+		• Pediacities (a technology and data company) counts <strong><style="font-size: 200%;">264</style></strong>. </br>
+		• New York City has <strong><style="font-size: 200%;">195 </style></strong>Neighborhood Tabulation Areas. These are used for census data. </br>
+		• The real estate industry company Zillow counts <strong><style="font-size: 200%;">286 </style></strong>neighborhoods.</br>
+		• Wikipedia acknowledges that there are many ways to consider neighborhoods and does not give us one count. </br>
+
+		<p style=" font-weight: normal;" style="font-size: 50%;">The yellow shape is the area I used to figure out how many people live inBedford Stuyvesant. It's based on the PediaCities boundaries because it most closely lines up with 48 census tracts and their associated population counts. See the next map about other NYC boundaries to see those census tracts.</p></a>
+
+
+</p>
+</div>
+</div>
+</html>
+</body>
+
