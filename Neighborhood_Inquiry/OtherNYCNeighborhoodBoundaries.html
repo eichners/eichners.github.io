@@ -57,11 +57,45 @@
     	background: #ff38d0;
         color: #fff;
     }
+
+     #menu_r {
+        position: absolute;
+        top: 5px;
+        right: 20px;
+        width: 200px;
+        background: transparent;
+        z-index: 10;
+    }
+
+    #menu_r a {
+        margin: 12px 10px 0 0;
+        float: right;
+        vertical-align: baseline;
+        width: 200px;
+        padding: 3px 18px 3px 18px;
+        text-align: left;
+        font: bold 14px "Verdana", Arial;
+        line-height: normal;
+        color: #FFF;
+        border-radius: 3px;
+        background: #ff38d0;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #menu_r a:active{
+        background:  #ff38d0;
+        color: #fff;
+    }
+    #menu_r a:hover {
+        background: #f970e2;
+        color: #fff;
+    }
         #box p{
         text-align: left;
         font-size: 15px;
         color:white;
-      }
+    }
       #box{
         position: absolute;
         top: 10px;
@@ -174,7 +208,7 @@
 <body onload="init()">
     <div id='map'></div>
     <div id='menu'>
-    	<a href="#All" id="All" class="button All;" onclick="showLayer(this);" style="background: #3b7fc6" >Other New York City Boundaries<p style=" font-weight: normal;" style="font-size: 50%;">These are municipal boundaries that are determined by data from many sources and shaped to make sure all New Yorkers have fair access to City  services like the Fire and Police Department. The US Government Census counts how many people live in not only New York, but the whole country. There are many more boundaries I could put on this map like voting districts, health areas, and zip codes, but that would get too crazy.</p> <p style=" font-weight: normal;" style="font-size: 50%;">If you want to know how many of each of these areas there are in New York City, the number is next to the name on each button below.</p></a>
+    	<a href="#Bed Stuy" id="Bed Stuy" class="button Bed Stuy;" onclick="showLayer(this);" style="background: #3b7fc6" >Other New York City Boundaries<p style=" font-weight: normal;" style="font-size: 50%;">These are municipal boundaries based on census data that are shaped to make sure all New Yorkers have access to City services like the Fire and Police Departments. The US Government Census counts how many people live in not only New York, but the whole country. There are many more boundaries like voting districts, health areas, and zip codes.</p></a>
 
         <a href="#School Districts" id="School Districts" class="button School Districts" onclick="showLayer(this);">School Districts (33)</a> 
 
@@ -186,7 +220,11 @@
 
        <a href="#Census Tracts" id="Census Tracts" class="button Census Tracts" onclick="showLayer(this)">Census Tracts (2,166)</a>
 
-        <a href="#Bed Stuy" id="Bed Stuy" class="button Bed Stuy" onclick="showLayer(this)">Bedford Stuyvesant</a>
+        <a href="#Bed Stuy" id="All" class="button Bed Stuy" onclick="showLayer(this)">Bedford Stuyvesant</a>
+    </div>
+    <div id='menu_r'>
+        <a href="#All" class="button;">
+           <p> Click here to see the next map which uses all the census tracts in Bed Stuy neighborhood to find out how many people live in our neighorhood as well as other population counts.</p>
     </div>
 </body>
 

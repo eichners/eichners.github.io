@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>NYC Neighborhood Boundary Map</title>
+        <title>Bedford Stuyvesant Population Origins</title>
 
            <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
@@ -149,7 +149,7 @@ a:active {
 <script>
     var layer;
     function init() {
-        var url = 'https://eichnersara.carto.com/api/v2/viz/906fd85b-9cb1-4af8-87ed-fad4c7ba53ee/viz.json';
+        var url = 'https://eichnersara.carto.com/api/v2/viz/af8770cc-8ca0-4e0a-94a3-abb97d4ce1fa/viz.json';
         var visualization = cartodb.createVis("map", url)
             .done(function(vis, layers) {
                 layer = layers[1];
@@ -208,27 +208,9 @@ a:active {
     <div id='map'></div>
 
     <div id='menu'>
-    	<a href="#Bedford Stuyvesant" id="Bedford Stuyvesant" class="button Bedford Stuyvesant;" onclick="showLayer(this);" style="background: #2bbf01" ><h1>How many neighborhoods are there in New York City?</h1><p style=" font-weight: normal;" style="font-size: 50%;">To answer that question we first need to decide where the boundaries of our neighborhoods are. Click the buttons below to see a few ways Neighborhood Boundaries are drawn in New York City.</p> 
-        <p style=" font-weight: normal;">The yellow shape is the area I used to figure out how many people live inBedford Stuyvesant and where they come from. </p></a>
-      <!--  <a href="#All" id="All" class="button All" onclick="showLayer(this);">All</a>-->
-        <a href="#NTAs" id="NTAs" class="button NTAs" onclick="showLayer(this);"><p>1. Neighborhood Tabulation Areas (Population Counts)</p></a>
-        <a href="#Zillow" id="Zillow" class="button Zillow" onclick="showLayer(this);"><p>2. Real Estate Industry Neighborhoods</p></a>
-        <a href="#PediaCity" id="PediaCity" class="button PediaCity" onclick="showLayer(this);"><p>3. Pediacities Neighborhoods</p></a>
-        <a href="#All" id="All" class="button All" onclick="showLayer(this)"><p>Show all at once</p></a>
+    	<a href="#Bedford Stuyvesant" id="Bedford Stuyvesant" class="button Bedford Stuyvesant;" onclick="showLayer(this);" style="background:  #FF9900" ><h1>Where do the people of Bedford Stuyvesant come from?</h1><p style=" font-weight: normal;" style="font-size: 50%;">To answer this question I looked at census data from the American Community Survey, a survey given to some households and collected between 2010 and 2015. Because only some households respond to this survey, the numbers are an estimate. They give a pretty accurate idea of our diverse neighborhood though.</p> 
+   
     </div>
-
-  <div class="box">
-        <p><b> NYC Neighborhood Counts</b></br></p>
-            <p>
-            • Pediacities: <strong><style="font-size: 200%;">264</style></strong></br>
-            • Zillow: <strong><style="font-size: 200%;">286 </style></strong></br>
-            • Neighborhood Tabulation Areas or NTAs:<strong><style="font-size: 200%;"> 195 </style></strong></br> </p>
-            <p>NTAs are used by the city with census data to count how many people live in each area. </br></br>
-    		See <a href="https://en.wikipedia.org/wiki/List_of_Brooklyn_neighborhoods"><b>Wikipedia</b></a> for a list of Brooklyn Neighborhoods. </br>.............................</br></p>
-    		<p><b><a href="OtherNYCNeighborhoodBoundaries.html">
-            MAP #2: </br>Click here to see how the city is divided for Fire Departments, Police Precincts and Schools.</a></b></p>
-    </div>
-</div>
 </html>
 </body>
 

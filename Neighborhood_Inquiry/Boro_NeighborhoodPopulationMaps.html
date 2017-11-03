@@ -28,7 +28,6 @@
         top: 5px;
         left: 60px;
         width: 200px;
-        height: 40px;
         background: transparent;
         z-index: 10;
     }
@@ -38,9 +37,9 @@
         float: left;
         vertical-align: baseline;
         width: 240px;
-        padding: 15px;
-        text-align: center;
-        font: bold 16px "Verdana", Arial;
+        padding: 13px 18px 13px 18px;
+        text-align: left;
+        font: bold 14px "Verdana", Arial;
         line-height: normal;
         color: #FFF;
         border-radius: 4px;
@@ -58,9 +57,20 @@
         color: #fff;
     }
 
+    h1 { 
+      font-family: Verdana;
+      font-size: 26px;
+      line-height: 1.25;
+      font-weight: heavy;
+      margin-top:0;
+      }
+
     .cartodb-layer-selector-box,
     .cartodb-searchbox,
     .cartodb-share {
+        display: none !important;
+    }
+       .cartodb-logo {
         display: none !important;
     }
     </style>
@@ -90,9 +100,9 @@
             case "Boroughs":
                 layer.getSubLayer(1).show();
                 break;
-   //         case "gdp_2015":
-   //             layer.getSubLayer(2).show();
-   //             break;
+            case "Bed Stuy":
+                layer.getSubLayer(2).show();
+                break;
         }
 
         return true;
@@ -107,9 +117,10 @@
 <body onload="init()">
     <div id='map'></div>
     <div id='menu'>
-        <a href="#Boroughs" id="Boroughs" class="button Boroughs" onclick="showLayer(this);">Borough Populations</a>
-        <a href="#Neighborhoods" id="Neighborhoods" class="button Neighborhoods" onclick="showLayer(this);">Neighborhood Populations</a>
-       <!-- <a href="#gdp_2015" id="gdp_2015" class="button gdp_2015" onclick="showLayer(this)">2015</a>-->
+                <a href="#Bed Stuy" id="Bed Stuy" class="button Bed Stuy;" onclick="showLayer(this);" style="background: #2bbf01" ><h1>How many people live in New York City?</h1><h1>8,538,000</h1> <p style=" font-weight: normal;">Click the buttons below to see hwo many people live in each borough and in each neighborhood.</p> </a>
+        <p><a href="#Boroughs" id="Boroughs" class="button Boroughs" onclick="showLayer(this);">Borough Populations</a></p>
+        <p><a href="#Neighborhoods" id="Neighborhoods" class="button Neighborhoods" onclick="showLayer(this);">Neighborhood Populations</a></p>
+       <a href="#Bed Stuy" id="Bed Stuy" class="button Bed Stuy" onclick="showLayer(this)">Bedford Stuyvesant</a>
     </div>
 </body>
 

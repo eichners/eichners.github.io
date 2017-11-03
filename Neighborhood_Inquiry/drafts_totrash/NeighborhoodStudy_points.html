@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Co-op School Neighborhood Study: Population Questions</title>
+    <title>Co-op School Neighborhood Study: Important Points</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
@@ -13,39 +13,15 @@ body {
     margin: 0;
 }
  #map {
-    height: 1200px;
-    width: 100%;
-    padding: 5;
-    margin: 5;
-    position: relative;
-    display: inline-block;
-    z-index: 0;
-  }
-  #map2 {
     height: 100%;
     width: 100%;
     padding: 5;
-    padding-top: 15;
     margin: 5;
-    margin-top: 15;
     position: relative;
     display: inline-block;
     z-index: 0;
-    overflow: hidden;
-    background: rgb(166,177,137);
   }
-    #map3 {
-    height: 100%;
-    width: 100%;
-    padding: 5;
-    padding-top: 15;
-    margin: 5;
-    margin-top: 15;
-    position: relative;
-    display: inline-block;
-    z-index: 0;
-    overflow: hidden;
-  }
+
 
   p3 {
     color: #FFCC00;
@@ -191,39 +167,6 @@ body {
       <div id ="box">
           <h1>First Grade Neighborhood Study: Questions</h1>
           <br/>
-
-<p>How many people live in New York City?
-In 2015, New York City and the US Census Bureau estimate there are: 8,550,405 people in New York.
-
-That is the largest population of any city in the United States, more than twice the size of the second largest city, Los Angeles.
-
-About 1 in every 38 people living in the United States lives in New York City.
-
-New York has the highest population density of any major city in the United States, with over 27,000 people per square mile.
-
-Over 3 million New Yorkers were born in a foreign country; over one-quarter arrived in 2000 or later.
-
-Nearly 2 million New Yorkers are children (under the age of 18).
-
-There are nearly 400,000 more women than men in New York.
-
-A baby is born in New York City every 4.4 minutes.
-
-The borough of Brooklyn by itself would be the 4th largest city in the United States; 
-Queens would also rank 4th nationally.
-
-Over 200 languages are spoken in New York City.
-
-Half of all New Yorkers speak a language other than English at home.
-
-New York City has the largest Chinese population of any city outside of Asia.
-
-More persons of West Indian ancestry live in New York City than any city outside of the West Indies.
-
-New York has the largest Puerto Rican population of any city in the world.
-
-More Dominicans live in New York than any other city in the world, other than Santo Domingo, the largest city in the Dominican Republic.
-</p><br/>
    
         <p>Data Sources:<br/>
    
@@ -301,7 +244,7 @@ More Dominicans live in New York than any other city in the world, other than Sa
         // get the currently selected style
         selectedStyle = $('li.selected').attr('id');
  
-        cartodb.createLayer(map, 'https://eichnersara.carto.com/api/v2/viz/abfe20b5-f1e7-4e74-b20e-0d3389e1eb4e/viz.json')
+        cartodb.createLayer(map, 'https://eichnersara.carto.com/api/v2/viz/d8ede641-79b5-4b8b-834d-5890b107f5fd/viz.json')
         .addTo(map)
         .done(function(layers) {
           createSelector(layers);
