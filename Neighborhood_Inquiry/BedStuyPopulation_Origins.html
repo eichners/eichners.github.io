@@ -48,19 +48,20 @@ a:active {
         position: absolute;
         top: 5px;
         left: 60px;
-        width: 200px;
+        width: 16%;
+        right: 30px;
         background: transparent;
         z-index: 10;
     }
 
     #menu a {
-        margin: 15px 10px 0 0;
+        margin: 15px 10px 40px 0;
         float: left;
         vertical-align: baseline;
-        width: 240px;
+        width: 100%;
         padding: 0px 14px 2px 14px; 
         text-align: left;
-        font: bold 14px "Verdana", Arial;
+        font: bold 13px "Verdana", Arial;
         line-height: normal;
         color: #FFF;
         border-radius: 3px;
@@ -112,7 +113,7 @@ a:active {
 
     .box p{
         text-align: left;
-        font-size: 14px;
+        font-size: 12px;
         color:white;
         line-height: 1.5;
     }
@@ -134,7 +135,7 @@ a:active {
 
     h1 { 
       font-family: Verdana;
-      font-size: 24px;
+      font-size: 18px;
       line-height: 1.2;
       font-weight: heavy;
     }
@@ -166,35 +167,11 @@ a:active {
         switch (layerToShow.id) {
             case "All":
                 layer.getSubLayer(0).show();
-                layer.getSubLayer(1).show(); // PediaCity Polygons
-                layer.getSubLayer(3).show(); // NTA polygons
-                layer.getSubLayer(4).show(); // Zillow polygons
-                layer.getSubLayer(5).show(); // Co-op School
+                layer.getSubLayer(1).show(); 
+                layer.getSubLayer(2).show(); 
+                layer.getSubLayer(3).show();
                 break;
-            case "NTAs":
-                layer.getSubLayer(5).show(); // Co-op School
-            	layer.getSubLayer(1).show(); // Bed Stuy
-                layer.getSubLayer(3).show(); //
-                layer.getSubLayer(0).show(); // boros
-                break;
-            case "Zillow":
-                layer.getSubLayer(5).show(); // Co-op School
-            	layer.getSubLayer(1).show(); // Bed Stuy
-                layer.getSubLayer(4).show(); //
-                layer.getSubLayer(0).show(); // boros
-                break;
-            case "PediaCity":
-                layer.getSubLayer(5).show(); // Co-op School
-            	layer.getSubLayer(1).show(); // Bed Stuy
-                layer.getSubLayer(2).show(); // 
-                layer.getSubLayer(0).show(); // boros
-                break;
-            case "Bedford Stuyvesant":
-                layer.getSubLayer(5).show(); // Co-op School
-         		layer.getSubLayer(1).show(); // Bed Stuy
-         		//layer.getSubLayer(2).show(); // pediacities polygons (mapping technology group)               
-                layer.getSubLayer(0).show(); // boros
-               break;
+
         }
 
         return true;
@@ -208,7 +185,7 @@ a:active {
     <div id='map'></div>
 
     <div id='menu'>
-    	<a href="#Bedford Stuyvesant" id="Bedford Stuyvesant" class="button Bedford Stuyvesant;" onclick="showLayer(this);" style="background:  #FF9900" ><h1>Where do the people of Bedford Stuyvesant come from?</h1><p style=" font-weight: normal;" style="font-size: 50%;">To answer this question I looked at census data from the American Community Survey, a survey given to some households and collected between 2010 and 2015. Because only some households respond to this survey, the numbers are an estimate. They give a pretty accurate idea of our diverse neighborhood though.</p> 
+    	<a href="#All" id="All" class="button All;" onclick="showLayer(this);" style="background:  #FF9900" ><h1>Where do the people of Bedford Stuyvesant come from?</h1><p style=" font-weight: normal;" style="font-size: 50%;">To answer this question I looked at census data from the American Community Survey, a survey given to some households and collected between 2010 and 2015. Because only some households respond to this survey, the numbers are an estimate. They give a pretty accurate idea of our diverse neighborhood though.</p> 
    
     </div>
 </html>
