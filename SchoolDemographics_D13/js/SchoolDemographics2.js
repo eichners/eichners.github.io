@@ -3,8 +3,8 @@
 
 var map = L.map('map');
     map.fitBounds([
-    [40.708798, -74.000173],
-    [40.669725, -73.943138]
+    [40.671720, -74.000816],
+    [40.707157,-73.938074]
 ]);
 var CartoDB = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
      minZoom: 11,
@@ -172,10 +172,7 @@ legend.onAdd = function (map) {
     // this is an html legend instead of leaflet generated through functions
     // circles for legend are svg elements
         div.innerHTML += 
- Updated upstream
         '<p><b>Click on building footprint <br/>for school information</b><br />' +
-
- Stashed changes
             '<p><b>District 13, Brooklyn</b><br />' +
             '<svg class="left" width="22" height="20"><rect x="5" y="8" height ="12" width ="14" class="legendSvg1"/></svg><span> Charter School</span><br />' +
             '<svg class="left" width="22" height="15"><rect x="5" y="3" height ="12" width ="14" class="legendSvg2"/></svg><span> Public School</span><br /></p>' +

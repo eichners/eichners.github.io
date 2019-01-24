@@ -8,8 +8,8 @@
 
 var map = L.map('map');
     map.fitBounds([
-    [40.708798, -74.000173],
-    [40.669725, -73.943138]
+   [40.671720, -74.000816],
+    [40.707157,-73.938074]
 ]);
 
 var CartoDB = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
