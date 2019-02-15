@@ -19,7 +19,6 @@ body {
 #bootstrap-overrides {
     padding:10px;
 }
-
 .center-block {
   display: block;
   text-align: center;
@@ -33,28 +32,28 @@ body {
     float: left;
     display: block; 
     object-fit: contain; 
-    margin: 30 auto; 
+    margin: 0 auto; 
     width: 60%; 
     height: 650px; 
     padding-left: 80px; 
-    padding-right: 30px; 
+    padding-right: 25px; 
     padding-bottom: 10px;
 }
 #container2 {
     float: left;
     display: block; 
     object-fit: contain; 
-    margin: 10 auto; 
+    margin: 0 auto; 
     width: 35%; 
     height: 550px; 
     padding-left: 60px; 
-    adding-right: 30px; 
+    padding-right: 25px; 
     padding-bottom: 10px;
     padding-top: 0px;
 }
 header {
     background-color: #fff;
-    padding: 50px;
+    padding-left: 90px;
     padding-top: 60px;
     padding-bottom: 30px;
     vertical-align: bottom;
@@ -64,7 +63,7 @@ header {
 }
 </style>
 
-<!-- boot strap is here to create a page template to present the materials before integrating it into wordpress site, still not centering on the page though which is the goal-->
+<!-- boot strap is here to create a page template to present the materials before integrating it into wordpress site, I'm still trying to get these to be centered on the page and want the two graphics to stay the same size as the window is resized. -->
 <script src="js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
     <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
@@ -109,15 +108,16 @@ $(document).ready(function() {
         tickWidth: 1,
         title: {
             align: 'high',
-            offset: -195,
+            offset: -210,
             rotation: 0,
             y: -13,
            // x:10,
-            text: 'Geomean Enterococcus cells per 100mL'
+            text: '<i>Enterococcus</i> Geomean: cells per 100mL'
         }
     },
     xAxis: {  
-      padding: 9,     
+      padding: 9,
+      // this isn't doing anything...     
     },
     legend: {
         layout: 'horizontal',
