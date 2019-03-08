@@ -1,0 +1,127 @@
+
+#headline {
+    width: 100%;
+    height: 170px;
+    background-color: #fff;
+    padding-left: 20px;
+    margin:10px;
+    padding-top: 70px;
+    padding-bottom: 0px;
+    vertical-align: bottom;
+    text-align: left;
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+    color:#3B89C3;
+}
+
+body {
+   font-family: 'Montserrat', sans-serif;
+   letter-spacing: 0.02em;
+   text-align: left
+}
+h1 {
+   font-family: 'Montserrat', sans-serif;
+   font-size: 28px;
+   letter-spacing: 0.02em;
+   line-height: .5;
+   text-align: left
+}
+video{
+   object-fit: contain; 
+    margin: 0 auto; 
+     overflow: hidden;
+}
+figure {
+   width:100%;
+   max-height:500px;
+   height:100%;
+   margin:1.25rem auto;
+   padding:0%;
+   background-color:white;
+}
+img {
+  height: 450px;
+  width: auto;
+}
+#bootstrap-overrides {
+    padding:5px;
+    text-align: left
+}   
+.center-block {
+  display: block;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1170px;
+}
+.center-block .img-responsive {
+    margin: 0 auto;
+}
+/* ! Highcharts sepcifically uses id = container for the chart, 
+bootstrap and wordpress use class = container for much of the general structuring in docs, maybe there's no conflict but but if it is, container styling might need to be moved to within the html code, inline with # container so it will override Wordpress container if necessary... try both ways and see. ; */
+
+#chartContainer .col-8 {
+    float: left;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+    width: 62%;
+    height: 600px;
+    padding-left: 0px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+
+}
+#container2  {
+    object-fit: contain; 
+    margin: 0 auto; 
+
+    
+}
+#container2  img{
+    width: 100%;
+}
+#textLeftContainer .col-4{
+    display: block; 
+    float: left;
+    margin-left:5px;
+    width: 62%;
+    height: 550px;
+    font-family: 'Montserrat', sans-serif;
+   letter-spacing: 0.02em;
+   text-align: left;
+   font-size:12px;
+}
+#videoContainer{ 
+  object-fit: contain; 
+  margin: 0 auto;   
+   overflow: hidden;
+}
+#videoContainer video{
+  border:2px solid white;
+    width: 100%;
+     overflow: hidden;
+}
+
+   /*  font-family: 'Montserrat', sans-serif;
+font-family: 'Merriweather', serif; */
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+.spacer {
+    height:90px;
+    width: 100%;
+}
+.controls {
+   float:left;
+   height:100%;
+   margin-left:0.1953125%;
+   display:block;
+}
+.controls .progress {
+   cursor:pointer;
+   background:transparent;
+   background-size:contain;
+   background-repeat:no-repeat;
+}
