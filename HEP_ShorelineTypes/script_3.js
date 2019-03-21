@@ -17,6 +17,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/eichners/cjqvwjoam3d7p2smt18p3nssn
 var shorelinesHarborGeoJSON;
 var shorelinesNorthGeoJSON;
 var livingShorelineGeoJSON;
+var shorelineSProjectGeoJSON;
 
 
 // 1. ADD SHORELINE DATA
@@ -173,20 +174,52 @@ $.getJSON("geojson/LivingShorelines_Points_merged.geojson", function(data) {
             var status = feature.properties.status;
           };
           // POPUP TEXT
-              layer.bindPopup("<strong>" + "Living Shorelines Project: " + Project_Na + "</strong>" + "</br>" + "Type: " +
-                Type + ", " + "</br>" +
-                "Status: " + status);
+            layer.bindPopup("<strong>" + "Living Shorelines Project: " + Project_Na + "</strong>" + "</br>" + "Type: " +
+                Type + ", " + "</br>" + "Status: " + status);
         }
 
       livingShorelineGeoJSON = L.geoJson(LivingShorelinePoints, {
       pointToLayer: LivingShorelineStyle,
       onEachFeature: LivingShorelineClick
     });
+      addShorelineSProject(); 
+ });
+}
+
+// SHORELINE PROJECTS (SHORELINE TYPE PHOTOS AND SHORELINE PORJECT PHOTOS)
+function addShorelinesProject() {
+
+$.getJSON("geojson/ShorelinesProject.geojson", function(data) {
+    var ShorelinesProject = data;   
+  
+        // POINT MARKER STYLE
+        var ShorelinesProjectStyle = function (feature, latlng) {
+          return L.circleMarker(latlng, {
+
+                radius: 7,
+                fillOpacity: 0.6,
+                fillColor: "#FF4500",
+                weight: 0,
+                });
+              }
+        
+        // ON POINT CLICK   
+        var ShorelinesProjectClick = function (feature, layer) {
+          // change popup color for point data: 
+          // POPUP TEXT
+            layer.bindPopup("<strong>" + Type + "</strong>" + "</br>"  + "</br>"  + text);
+        }
+
+      shorelinesProjectGeoJSON = L.geoJson(ShorelineProjects, {
+      pointToLayer: ShorelinesProjectStyle,
+      onEachFeature: ShorelinesProjectClick
+    });
 
 // LOAD DATA LAYERS LAST TO CONTROL ORDER: 
   shorelinesNorthGeoJSON.addTo(map);
   shorelinesHarborGeoJSON.addTo(map);
   livingShorelineGeoJSON.addTo(map);
+  shorelinesProjectGeoJSON.addTo(map);
   map.fitBounds(shorelinesHarborGeoJSON.getBounds());
 
  });
