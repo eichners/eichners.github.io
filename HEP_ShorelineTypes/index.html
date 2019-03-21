@@ -17,9 +17,38 @@
     <div class ="wrapper">
       <div class="overlay">
         <div class="overlayContent">
+
           <h1>Hudson River Estuary</h1>
           <p2>Shoreline Types</p2>
         </div>
+
+        <div class="legend">
+          <svg height="220" width="100%" z-index="500">
+            <text x="15" y="43"style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
+                Shoreline Types:
+              </text>
+            <line x1="15" y1="60" x2="50" y2="60" style="stroke-width:4; stroke-linecap:round;stroke:#bad85f;"/>
+              <text x="62" y="62" style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
+                Natural
+              </text>
+            <line x1="15" y1="80" x2="50" y2="80" style="stroke-width:4; stroke-linecap:round;stroke:#5ea8e5;"/>
+              <text x="62" y="85" style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
+                Engineered
+              </text>
+            <circle cx="18" cy="107" r="6" style="fill:#FF1493; position: absolute;"/>
+               <text x="31" y="100" style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
+                  <tspan x="31" dy=".6em">Click to see examples </tspan> 
+                   <tspan x="31" dy="1.2em">of shoreline types</tspan>
+                </text>
+            <circle cx="18" cy="145" r="6" style="fill:#8e8e8d;position: absolute;"/>
+                <text x="31" y="150" style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
+                  Shoreline Projects 
+              </text>
+
+          </svg>
+
+        </div>
+
       </div>
     </div>
 
@@ -30,6 +59,6 @@
     <!-- Scripts -->
      <script type="text/javascript" src="libraries/jQuery/jquery-1.11.2.min.js"></script>
      <script type="text/javascript" script src="libraries/leaflet/leaflet.js"></script>
-     <script type="text/javascript" src="script_3.js"></script>
+     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

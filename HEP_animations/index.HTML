@@ -16,7 +16,12 @@
 
 
 
-<!-- using bootstrap to build temporary presentation template; I'm still trying to get these to be responsive and want the two graphics to stay the same size as the window is resized. -->
+<!-- using bootstrap to build temporary presentation template; I'm still trying to get these to be responsive and want the two graphics to stay the same size as the window is resized. 
+
+old video container code: 
+<video playsinline=""  muted="" loop="" class="col-sm-8" controls="controls" preload="true">
+            <source src="videos/Mercury.mp4" type="video/mp4">
+            </video>-->
 
 <script src="jQuery/jquery-1.11.2.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
@@ -41,17 +46,32 @@
             <div class="spacer"></div>
         </div>
     </div>
+
+
+    <div class="center-block" class="col-12" style="max-width:1200px">
+        <div class="row">
+       <div id="headline" class="col-12" style="color:#7bb601">Habitat: Fish</div>
+    </div>
+    <div id="textLeftContainer" class="col-sm-4">
+            <p>Lorem ipsum dolor sit amet, nec in vidisse democritum. Amet fabulas admodum id his. Eam no etiam nobis suscipiantur. Erant delectus accusamus no vim, in quo justo clita iisque. Populo feugiat inimicus in eos, eros albucius ei vel, an eum populo vidisse periculis. Vix in vero adhuc ridens, quod duis has ut, id vis offendit placerat.
+        Te affert ponderum nam, vituperata percipitur an eam. Te consulatu similique pri, eu solum legere ocurreret vel. Solet congue postulant mel id, an alia homero vix. Ex unum utamur corrumpit vim. Eius tempor reformidans at per. Pri sumo offendit vulputate te. Eam ferri iuvaret ex, eam fugit ma`iestatis ne.</p> </div>
+        <div id="videoContainer" class="col-sm-12">        
+            <img src="videos/FishAnimation_1c_5Species.gif">
+        </div>
+    </div>
+      </div>
+    <div class="row"></div>
+
+
   
     <div class="center-block" class="col-12" style="max-width:1200px">
         <div class="row">
-        <div id="headline" class="col-12" style="color:#7bb601">Habitat: </br>Benthic Index, Sediment Health</div>
+        <div id="headline" class="col-12" style="color:#7bb601">Habitat: Benthic Index, Sediment Health</div>
     </div>
         <div id="textLeftContainer" class="col-sm-4">Lorem ipsum dolor sit amet, nec in vidisse democritum. Amet fabulas admodum id his. Eam no etiam nobis suscipiantur. Erant delectus accusamus no vim, in quo justo clita iisque. Populo feugiat inimicus in eos, eros albucius ei vel, an eum populo vidisse periculis. Vix in vero adhuc ridens, quod duis has ut, id vis offendit placerat.
         Te affert ponderum nam, vituperata percipitur an eam. Te consulatu similique pri, eu solum legere ocurreret vel. Solet congue postulant mel id, an alia homero vix. Ex unum utamur corrumpit vim. Eius tempor reformidans at per. Pri sumo offendit vulputate te. Eam ferri iuvaret ex, eam fugit maiestatis ne. </div>
-        <div id="videoContainer" class="col-sm-8"> 
-            <video playsinline="" autoplay="" muted="" loop="" class="col-sm-8" controls="controls" border="1px solid #fff" preload="true">
-            <source src="videos/benthic_1993-2013-02.mp4" type="video/mp4">
-            </video>
+        <div id="videoContainer" class="col-sm-8">        
+            <img src="videos/benthic_1993-2013.gif">
         </div>
     </div>
     
@@ -59,16 +79,43 @@
 
     <div class="center-block" class="col-12" style="max-width:1200px">
         <div class="row">
-        <div id="headline" class="col-12" style="color:#a64d97">Toxins: </br>Mercury, 1993-2013</div>
+        <div id="headline" class="col-12" style="color:#a64d97">Toxins: Mercury, 1993-2013</div>
     </div>
         <div id="textLeftContainer" class="col-sm-4">Lorem ipsum dolor sit amet, nec in vidisse democritum. Amet fabulas admodum id his. Eam no etiam nobis suscipiantur. Erant delectus accusamus no vim, in quo justo clita iisque. Populo feugiat inimicus in eos, eros albucius ei vel, an eum populo vidisse periculis. Vix in vero adhuc ridens, quod duis has ut, id vis offendit placerat.
         Te affert ponderum nam, vituperata percipitur an eam. Te consulatu similique pri, eu solum legere ocurreret vel. Solet congue postulant mel id, an alia homero vix. Ex unum utamur corrumpit vim. Eius tempor reformidans at per. Pri sumo offendit vulputate te. Eam ferri iuvaret ex, eam fugit maiestatis ne. </div>
         <div id="videoContainer" class="col-sm-8"> 
-            <video playsinline=""  muted="" loop="" class="col-sm-8" controls="controls" preload="true">
-            <source src="videos/Mercury.mp4" type="video/mp4">
-            </video>
+            <img src="videos/Mercury.gif">
+        </div>
         </div>
     </div>
+ <div class="row"></div>
+    <div class="center-block" class="col-12" style="max-width:1200px">
+        <div class="row">
+        <div id="headline" class="col-12" style="color:#a64d97">Toxics: PAHs</div>
+    </div>
+        <div id="textLeftContainer" class="col-sm-4">Lorem ipsum dolor sit amet, nec in vidisse democritum. Amet fabulas admodum id his. Eam no etiam nobis suscipiantur. Erant delectus accusamus no vim, in quo justo clita iisque. Populo feugiat inimicus in eos, eros albucius ei vel, an eum populo vidisse periculis. Vix in vero adhuc ridens, quod duis has ut, id vis offendit placerat.
+        Te affert ponderum nam, vituperata percipitur an eam. Te consulatu similique pri, eu solum legere ocurreret vel. Solet congue postulant mel id, an alia homero vix. Ex unum utamur corrumpit vim. Eius tempor reformidans at per. Pri sumo offendit vulputate te. Eam ferri iuvaret ex, eam fugit maiestatis ne. </div>
+        <div id="videoContainer" class="col-sm-8">        
+            <img src="videos/PAHs_gif.gif">
+        </div>
+    </div>
+    
+    <div class="row"></div>
+
+
+<div class="center-block" class="col-12" style="max-width:1200px">
+        <div class="row">
+        <div id="headline" class="col-12" style="color:#7bb601">Public Access: Boathouses and Human Powered Boat Trips</div>
+    </div>
+        <div id="textLeftContainer" class="col-sm-4">Lorem ipsum dolor sit amet, nec in vidisse democritum. Amet fabulas admodum id his. Eam no etiam nobis suscipiantur. Erant delectus accusamus no vim, in quo justo clita iisque. Populo feugiat inimicus in eos, eros albucius ei vel, an eum populo vidisse periculis. Vix in vero adhuc ridens, quod duis has ut, id vis offendit placerat.
+        Te affert ponderum nam, vituperata percipitur an eam. Te consulatu similique pri, eu solum legere ocurreret vel. Solet congue postulant mel id, an alia homero vix. Ex unum utamur corrumpit vim. Eius tempor reformidans at per. Pri sumo offendit vulputate te. Eam ferri iuvaret ex, eam fugit maiestatis ne. </div>
+        <div id="videoContainer" class="col-sm-8">        
+            <img src="videos/Boathouses_gif.gif">
+        </div>
+    </div>
+    
+    <div class="row"></div>
+
      <div class="center-block" class="col-12" style="max-width:1200px">
     <div class="row"></div>
     <div class="row"></div>
