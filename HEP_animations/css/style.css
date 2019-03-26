@@ -1,7 +1,6 @@
 
 #headline {
     width: 100%;
-
     background-color: #fff;
     padding-left: 20px;
     margin:10px;
@@ -17,7 +16,8 @@
 body {
    font-family: 'Montserrat', sans-serif;
    letter-spacing: 0.02em;
-   text-align: left
+   text-align: left;
+   margin-bottom: 80px;
 }
 h1 {
    font-family: 'Montserrat', sans-serif;
@@ -26,6 +26,13 @@ h1 {
    line-height: .5;
    text-align: left
 }
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+p2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
 video{
    object-fit: contain; 
     margin: 0 auto; 
@@ -39,9 +46,15 @@ figure {
    padding:0%;
    background-color:white;
 }
+#footer {
+  height: 150px;
+  background-color:white;
+  position:absolute;
+   bottom:0;
+}
 img {
-  height: 450px;
-  width: auto;
+  height: auto;
+  width: 100%;
 }
 #bootstrap-overrides {
     padding:5px;
@@ -60,7 +73,7 @@ img {
 /* ! Highcharts sepcifically uses id = container for the chart, 
 bootstrap and wordpress use class = container for much of the general structuring in docs, maybe there's no conflict but but if it is, container styling might need to be moved to within the html code, inline with # container so it will override Wordpress container if necessary... try both ways and see. ; */
 
-#chartContainer .col-8 {
+#chartContainer .highcharts-container .col-8 {
     float: left;
     display: block;
     object-fit: contain;
@@ -106,9 +119,7 @@ bootstrap and wordpress use class = container for much of the general structurin
    /*  font-family: 'Montserrat', sans-serif;
 font-family: 'Merriweather', serif; */
 
-p {
-    font-family: 'Montserrat', sans-serif;
-}
+
 .spacer {
     height:90px;
     width: 100%;
