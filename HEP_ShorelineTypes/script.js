@@ -119,8 +119,6 @@ function addShorelinesNorth() {
           } else {
             var ATTRIBUTE = feature.properties.ATTRIBUTE;
           };
-          // HIDE DO NOT DISPLAY POPUPS
-          // just delete the data from dataset: to do later
 
         layer.bindPopup("<strong>" + "<p6>" +
         feature.properties.shoretype +" Shoreline" + "</strong>" + "<br>" +
@@ -129,9 +127,10 @@ function addShorelinesNorth() {
 
     shorelinesNorthGeoJSON = L.geoJson(ShorelinesNorth, {
         style: shorelineStyle, 
-        onEachFeature: shorlineClick    
+        onEachFeature: shorlineClick  
+        
   });
-
+console.log("anything again?") 
 addShorelinesProject(); 
 });
 }

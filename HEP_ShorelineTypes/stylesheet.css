@@ -10,7 +10,7 @@ html, body, #map {
     z-index: 0;
 }
 
-h1 #mapWrapper {
+h1  {
     font-family: ff-tisa-sans-web-pro, sans-serif;
     font-size: 30px;
     font-weight: 700;
