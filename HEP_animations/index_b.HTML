@@ -32,10 +32,6 @@ old video container code:
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-      <link type="text/css" rel="stylesheet" href="HEP_ShorelineTypes/libraries/leaflet/leaflet.css" />
-      <!--<link type="text/css" rel="stylesheet" href="HEP_ShorelineTypes/mapStylesheet.css"/>-->
-      <link rel="stylesheet" href="https://use.typekit.net/grv8uth.css"/>
-
 </head>
 <body>
 <div class="center-block" class="col-12" style="max-width:1200px">
@@ -167,50 +163,19 @@ old video container code:
 
 
     <div class="center-block" class="col-12" style="max-width:1200px">
-        <div class="row">    
-            <div class="col-sm-12"><h1 style="color:#7bb601">Habitat: Shoreline Types</h1></br>* This map might need to live on its own page in order for the placement of elements and styling to stay consistent. If we do an iframe here, the interactivity doesn't work. So an alternative would be to have a smaller image of the map here that links to the interactive map on it's own page. 
+        <div class="row">
+            <div id="headline" class="col-12" style="color:#7e4b31">Shoreline Types
             </div>
         </div>
-    </div>
-    <div class="center-block" class="col-12" style="max-width:1200px">
-        <div class="mapContainer">
-          <div class ="mapWrapper">
-            <div class="mapOverlayContent">
-              <h1  style="color:#7bb601;  font-size:28px; font-weight: bold">Shoreline Types</h1>
-            </div>
-
-            <div class="legend">
-              <svg height="180" width="100%" z-index="500">
-                <text x="15" y="20"style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px; font-weight: bold;margin-top:50px">
-                    Shoreline Types:
-                  </text>
-                <line x1="15" y1="40" x2="50" y2="40" style="stroke-width:4; stroke-linecap:round;stroke:#bad85f;"/>
-                  <text x="62" y="42" style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
-                    Natural
-                  </text>
-                <line x1="15" y1="61" x2="50" y2="61" style="stroke-width:4; stroke-linecap:round;stroke:#5ea8e5;"/>
-                  <text x="62" y="65" style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
-                    Engineered
-                  </text>
-                <circle cx="18" cy="90" r="6" style="fill:#e84343; position: absolute;"/>
-                   <text x="31" y="83" style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
-                      <tspan x="31" dy=".6em">Click to see examples </tspan> 
-                       <tspan x="31" dy="1.2em">of shoreline types</tspan>
-                    </text>
-                <circle cx="18" cy="125" r="6" style="fill:#ED861D;position: absolute;"/>
-                    <text x="31" y="130" style="font-family:ff-tisa-sans-web-pro, sans-serif; font-size:14px;">
-                      Shoreline Projects 
-                  </text>
-              </svg>
-            </div>
-
-
-            <div id="map"> 
-            </div> 
+        <div id="textLeftContainer" class="col-sm-12">Lorem ipsum dolor sit amet, nec in vidisse democritum. Amet fabulas admodum id his. Eam no etiam nobis suscipiantur. Erant delectus accusamus no vim, in quo justo clita iisque. Populo feugiat inimicus in eos, eros albucius ei vel, an eum populo vidisse periculis. Vix in vero adhuc ridens, quod duis has ut, id vis offendit placerat.
+        Te affert ponderum nam, vituperata percipitur an eam. Te consulatu similique pri, eu solum legere ocurreret vel. Solet congue postulant mel id, an alia homero vix. Ex unum utamur corrumpit vim. Eius tempor reformidans at per. Pri sumo offendit vulputate te. Eam ferri iuvaret ex, eam fugit maiestatis ne. 
         </div>
-      </div>
+        <div class="col-sm-12"> 
+            <iframe src="HEP_ShorelineTypes/index.html" frameborder="0"></iframe>       
+            
+        </div>
     </div>
-     </div>
+    
     <div class="row"></div>
 
      <div class="center-block" class="col-12" style="max-width:1200px">
@@ -220,6 +185,8 @@ old video container code:
 
     </div>
 
+     <div class="footer" style="color:white, height:180px">
+    </div>
 
 
 <script>
@@ -368,8 +335,6 @@ $(document).ready(function() {
 });
 });
 </script>
-     
-     <script type="text/javascript" script src="HEP_ShorelineTypes/libraries/leaflet/leaflet.js"></script>
-     <script type="text/javascript" src="HEP_ShorelineTypes/script.js"></script>
+
 </body>
 </html>
