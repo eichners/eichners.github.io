@@ -49,7 +49,7 @@ figure {
 #footer {
   height: 150px;
   background-color:white;
-  position:absolute;
+  position:fixed;
    bottom:0;
 }
 img {
@@ -119,7 +119,10 @@ bootstrap and wordpress use class = container for much of the general structurin
    /*  font-family: 'Montserrat', sans-serif;
 font-family: 'Merriweather', serif; */
 
-
+iframe{
+  width: 1200px;
+  height: 1150px;
+}
 .spacer {
     height:90px;
     width: 100%;
@@ -136,3 +139,185 @@ font-family: 'Merriweather', serif; */
    background-size:contain;
    background-repeat:no-repeat;
 }
+
+#map {
+    z-index: 0;
+     margin-top: 40px;
+
+     width: 1153px;
+     height: 1000px;
+}
+
+h5 .mapWrapper {
+    font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+    margin-top: 80px;
+    margin-bottom: 0;
+    line-height: 1;
+    
+}
+
+p6 {
+    font-family: ff-tisa-sans-web-pro, sans-serif; 
+    font-size: 14px;
+    font-weight: 400;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+p5{
+    font-family: ff-tisa-sans-web-pro, sans-serif; 
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+/* Ital*/ 
+p3 {
+    font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-weight: 400;
+     font-style: italic;
+}
+
+
+h4 {
+    font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-block-start: .1em;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+h1 .mapHeadline
+{
+    font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+
+}
+/*
+Tisa Sans Pro Bold Italic
+font-family: ff-tisa-sans-web-pro, sans-serif;
+font-weight: 700;
+font-style: italic;
+
+Tisa Sans Pro Italic
+font-family: ff-tisa-sans-web-pro, sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Tisa Sans Pro Regular
+font-family: ff-tisa-sans-web-pro, sans-serif;
+font-weight: 400;
+font-style: normal;
+*/
+
+.leaflet-top .leaflet-control-zoom {
+top:110px;
+left: 30px;
+transform: translateY(-50%);
+}
+
+ .leaflet-top .leaflet-control-zoom-in
+{
+  z-index: 5000;
+  }
+  
+ .leaflet-bottom .leaflet-control-zoom-out {
+  z-index: 5000;
+  }
+
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+    background: #e93434;
+    color: #ffffff;
+}
+
+
+.leaflet-popup-content-wrapper { 
+  border-radius: 5px;
+}
+.leaflet-popup-tip {
+  background: white;
+  z-index:200;
+
+}
+
+.leaflet-popup {
+  font-family: ff-tisa-sans-web-pro, sans-serif; 
+ font-size: 14px;
+  font-weight: 400;
+  background: "#e0e0de";
+  /*font-size: 14px;
+  font-weight: 400;*/
+  letter-spacing: .25px;
+  width: auto;
+  border-radius: 5px;
+  z-index: 200;
+}
+
+p4 {
+    font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-weight: 400;
+   font-size: 10px;
+}
+/* p4 is down here to override leaflet pop up css
+*/
+
+.popupImage {
+    max-width: 20%;
+    max-height: 20%;
+}
+img{
+margin-bottom: 10px;
+}
+
+
+#mapWrapper {
+  position: absolute;
+ 
+  margin-top: 80px;
+  margin-bottom: 40px;
+  width: 100%;
+  height: 1153px;
+  z-index: 10;
+
+}
+
+.mapOverlayContent {
+
+  color: white;
+  line-height: 1;
+  z-index: 200;
+  margin-top: 20px;
+  margin-left: 28px;
+   position: absolute;
+   font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-weight: 400;
+   font-size: 20px;
+}
+
+.legend {
+  letter-spacing: .25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  width: 210px;
+  margin-bottom: 30px;
+  margin-left : 10px;
+  margin-top: 830px;
+  height: 165px;
+  position: absolute;
+  z-index: 300;
+
+}
+svg {
+  z-index: 100
+}
+
