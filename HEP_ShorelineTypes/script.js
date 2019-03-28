@@ -86,7 +86,7 @@ function addShorelinesNorth() {
 
   $.getJSON( "geojson/ShorelineType_North.geojson", function( data ) {
     var ShorelinesNorth = data;   
-
+console.log(data);
       // 1.SHORELINE STYLE
       var shorelineStyle = function (feature) {
         var value = feature.properties.shoretype;
@@ -167,7 +167,7 @@ $.getJSON("geojson/ShorelinesProject.geojson", function(data) {
         var ShorelinesProjectClick = function (feature, layer) {
           // change popup color for point data: 
           // POPUP TEXT
-            layer.bindPopup("<strong>" + feature.properties.type + "</strong>" + "</br>" 
+            layer.bindPopup("<strong>" + feature.properties.category + ": " + feature.properties.type + "</strong>" + "</br>" 
               + "</br>" + "<img src='img/" + feature.properties.photo + "' width='300px', padding-bottom='5px'>" + "</br>" + feature.properties.text + "</br>" + "<p4>" + "Photo: " + feature.properties.photoCredit + "</p4>");
         }
 
