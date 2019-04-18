@@ -67,7 +67,7 @@ function addShorelinesHarbor() {
 
         layer.bindPopup("<strong>" +
         feature.properties.shoretype +" Shoreline" + "</strong>" + "<br>" +
-        ATTRIBUTE);
+        ATTRIBUTE );
       }
 
     shorelinesHarborGeoJSON = L.geoJson(ShorelinesHarbor, {
@@ -122,9 +122,9 @@ function addShorelinesNorth() {
           // HIDE DO NOT DISPLAY POPUPS
           // just delete the data from dataset: to do later
 
-        layer.bindPopup("<strong>" + "<p6>" +
+        layer.bindPopup("<strong>" +
         feature.properties.shoretype +" Shoreline" + "</strong>" + "<br>" +
-        ATTRIBUTE + "</p6>");
+        ATTRIBUTE );
       }
 
     shorelinesNorthGeoJSON = L.geoJson(ShorelinesNorth, {
@@ -140,7 +140,7 @@ addShorelinesProject();
 // SHORELINE PROJECTS (SHORELINE TYPE PHOTOS AND SHORELINE PORJECT PHOTOS)
 function addShorelinesProject() {
 
-$.getJSON("geojson/ShorelinesProject.geojson", function(data) {
+$.getJSON("geojson/ShorelinesProject_2.geojson", function(data) {
     var ShorelinesProject = data;   
     console.log(data);
   
