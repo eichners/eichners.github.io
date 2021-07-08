@@ -1,0 +1,175 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+    width: 100%;
+
+}
+#map {
+    z-index: 0;
+}
+
+h1  {
+    font-family: neue-haas-grotesk-display, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1;
+    
+}
+p2 {
+    font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    color: white;
+    line-height: 2;
+}
+p6 {
+    font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+p5{
+    font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+/* Ital*/ 
+p3 {
+    font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+
+h4 {
+    font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-block-start: .1em;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+
+.leaflet-top .leaflet-control-zoom {
+top:170px;
+left: 60px;
+/* transform: translateY(-50%);*/
+}
+
+ .leaflet-top .leaflet-control-zoom-in
+{
+  z-index: 5000;
+  }
+  
+ .leaflet-bottom .leaflet-control-zoom-out {
+  z-index: 5000;
+  }
+
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+    background: #e93434;
+    color: #ffffff;
+}
+
+
+.leaflet-popup-content-wrapper { 
+  border-radius: 5px;
+}
+.leaflet-popup-tip {
+  background: white;
+  z-index:200;
+
+}
+
+.leaflet-popup {
+  font-family: ff-tisa-sans-web-pro, sans-serif; 
+  font-size: 14px;
+  font-weight: 400;
+  background: "#e0e0de";
+  letter-spacing: .25px;
+  width: auto;
+  border-radius: 5px;
+  z-index: 200;
+}
+
+p4 {
+    font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-weight: 400;
+   font-size: 10px;
+}
+/* p4 is down here to override leaflet pop up css
+*/
+
+.popupImage {
+    max-width: 20%;
+    max-height: 20%;
+}
+img{
+    margin-bottom: 10px;
+}
+.overlayContent {
+  padding-left: 30px;
+  margin-top: 40px;
+  line-height: 1;
+ 
+  z-index: 6000;
+}
+.overlay{
+  padding-left: 40px;
+  margin-top: 30px;
+  color: "#82c444";
+  width: 100%;
+  line-height: 1.5;
+  z-index: 10;
+}
+.wrapper {
+  position: absolute;
+  padding: 20;
+  margin: 0;
+  top: 10;
+  height: 155px;
+  width: 100%;
+  z-index: 10;
+  background: rgba(130,196,68, 0.8)
+}
+
+
+.legend {
+  letter-spacing: .25px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  bottom: 12px;
+  width: 250px;
+  margin-top: 170px;
+  margin-left : 20px;
+  height: 100px;
+  position: fixed;
+  z-index: 10;
+
+}
+svg {
+  z-index: 100
+}
+
