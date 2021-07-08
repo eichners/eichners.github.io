@@ -2,7 +2,7 @@
 
 //var mapboxAccessToken = 'pk.eyJ1IjoiZWljaG5lcnMiLCJhIjoiY2lrZzVneDI4MDAyZ3VkbTZmYWlyejUzayJ9.vEGckM-D3AjV4jXmdibXyw';
 //40.71,-73.93], 13
-var map = L.map('map').setView([40.722535,-73.959397], 18.5);
+var map = L.map('map').setView([40.723665,-73.958234], 18);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/eichners/ckqtpfqjm12ti17mupyiishkx/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZWljaG5lcnMiLCJhIjoiY2lrZzVneDI4MDAyZ3VkbTZmYWlyejUzayJ9.vEGckM-D3AjV4jXmdibXyw', 
 {
@@ -124,8 +124,9 @@ function style(feature) {
     shorelineGeoJSON.addTo(map);
     biplotsGeoJSON.addTo(map);
     map.fitBounds([
-      [40.720478, -73.964703],
-      [40.728495, -73.956549]
+      [40.715745,-73.971548],
+      [40.731584,-73.944919]
+//40.723351,-73.961028
 
   ]);
 });
