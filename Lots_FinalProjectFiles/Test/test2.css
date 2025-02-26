@@ -1,9 +1,0 @@
-.error {
-  color: red;
-  font-weight: bold;
-}
-
-html, body, #map {
-    height: 100%;
-    width: 100%;
-}
